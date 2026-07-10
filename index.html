@@ -201,6 +201,16 @@
     .gal-item:hover img,.gal-item:hover video{transform:scale(1.07);filter:brightness(1) saturate(1.3)}
     .gal-label{position:absolute;bottom:0.75rem;left:0.85rem;font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45)}
 
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.92);display:none;align-items:center;justify-content:center;padding:3rem 1.5rem;cursor:zoom-out}
+    .lightbox-overlay.active{display:flex}
+    .lightbox-inner{position:relative;max-width:1100px;max-height:88vh;width:100%;cursor:default}
+    .lightbox-inner img,.lightbox-inner video{width:100%;height:100%;max-height:80vh;object-fit:contain;display:block;margin:0 auto;border-radius:6px;box-shadow:0 20px 80px rgba(0,0,0,0.7)}
+    .lightbox-caption{text-align:center;margin-top:1rem;font-family:'Oswald',sans-serif;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.65)}
+    .lightbox-close{position:absolute;top:-2.5rem;right:0;background:none;border:2px solid rgba(255,255,255,0.25);color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.1rem;line-height:1;cursor:pointer;transition:all 0.2s}
+    .lightbox-close:hover{border-color:var(--green);color:var(--green)}
+    @media(max-width:600px){.lightbox-close{top:-3rem;right:0.25rem}}
+
     /* ── STATS ── */
     .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.04);margin-top:3rem}
     .stat{background:var(--dark2);padding:2.5rem 1.5rem;text-align:center}
@@ -671,60 +681,69 @@
 
   <!-- Photo grid — glow golf photos -->
   <div style="max-width:1200px;margin:0 auto;padding:4px 2rem 4rem;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:4px;">
-    <div class="gal-item" style="grid-column:span 2;grid-row:span 2;">
+    <div class="gal-item" style="grid-column:span 2;grid-row:span 2;cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-full-course-action.jpg" alt="Families playing blacklight glow mini golf at Grand Slam Entertainment Branson MO" loading="lazy" />
       <div class="gal-label">Full Course · Live Action</div>
     </div>
-    <div class="gal-item" style="grid-column:span 2;grid-row:span 2;">
+    <div class="gal-item" style="grid-column:span 2;grid-row:span 2;cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <video src="glow-golf-video-2.mp4" autoplay muted loop playsinline></video>
       <div class="gal-label">Glow Golf · In Action</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-baseball-mural.jpg" alt="Baseball neon mural inside Grand Slam Glow Golf Branson" loading="lazy" />
       <div class="gal-label">Baseball Mural</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-course-overview.jpg" alt="Grand Slam Glow Golf course overview Branson Missouri" loading="lazy" />
       <div class="gal-label">Course Overview</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-family-playing.jpg" alt="Family playing glow mini golf at Grand Slam Entertainment Branson" loading="lazy" />
       <div class="gal-label">Family Fun</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-kid-putting.jpg" alt="Kids playing blacklight mini golf Grand Slam Branson MO" loading="lazy" />
       <div class="gal-label">Kids Love It</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-christmas-obstacle.jpg" alt="Christmas themed glow golf hole at Grand Slam Entertainment Branson" loading="lazy" />
       <div class="gal-label">Holiday Theming</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-christmas-theme.jpg" alt="Neon Christmas themed mini golf obstacles in Branson MO" loading="lazy" />
       <div class="gal-label">Themed Obstacles</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-neon-1.jpg" alt="Neon UV blacklight mini golf course Branson Missouri" loading="lazy" />
       <div class="gal-label">UV Neon Art</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-neon-2.jpg" alt="Blacklight glow golf murals at Grand Slam Entertainment" loading="lazy" />
       <div class="gal-label">Neon Murals</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <img src="glow-golf-pumpkins.jpg" alt="Halloween glow golf theme Grand Slam Branson MO" loading="lazy" />
       <div class="gal-label">Halloween Theme</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <video src="glow-golf-video-3.mp4" autoplay muted loop playsinline></video>
       <div class="gal-label">Glow Golf · Course Highlights</div>
     </div>
-    <div class="gal-item">
+    <div class="gal-item" style="cursor:pointer;" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter')openLightbox(this)" role="button" tabindex="0">
       <video src="glow-golf-video-4.mp4" autoplay muted loop playsinline></video>
       <div class="gal-label">Glow Golf · More Action</div>
     </div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox-overlay" onclick="if(event.target===this) closeLightbox()">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <div id="lightboxContent"></div>
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
 
 <!-- PERKS -->
 <div style="position: relative; z-index: 1;">
@@ -1198,6 +1217,41 @@
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!open) item.classList.add('open');
   }
+
+  function openLightbox(el) {
+    var media = el.querySelector('img, video');
+    if (!media) return;
+    var label = el.querySelector('.gal-label');
+    var content = document.getElementById('lightboxContent');
+    content.innerHTML = '';
+    if (media.tagName === 'IMG') {
+      var img = document.createElement('img');
+      img.src = media.src;
+      img.alt = media.alt || '';
+      content.appendChild(img);
+    } else {
+      var vid = document.createElement('video');
+      vid.src = media.currentSrc || media.src;
+      vid.controls = true;
+      vid.autoplay = true;
+      vid.loop = true;
+      vid.playsInline = true;
+      content.appendChild(vid);
+    }
+    document.getElementById('lightboxCaption').textContent = label ? label.textContent : '';
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.getElementById('lightboxContent').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
 
   // Scroll reveal — robust version with rootMargin so items trigger before fully in view
   (function(){
