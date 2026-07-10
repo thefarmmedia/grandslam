@@ -4,26 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grand Slam Entertainment | Glow Golf, Laser Tag & Escape Rooms in Branson, MO</title>
-  <meta name="description" content="Grand Slam Entertainment at Ballparks of America in Branson, MO. Three epic attractions: Grand Slam Glow Mini Golf, Operation Outbreak Zombie Laser Tag, and The Skeleton Key Escape Rooms. One price – $35. Fun for all ages." />
+  <meta name="description" content="Grand Slam Entertainment at Ballparks of America in Branson, MO. Grand Slam Glow Mini Golf and Operation Outbreak Zombie Laser Tag — $10 each or $18 for the Double Play combo. The Skeleton Key Escape Rooms coming soon. Fun for all ages." />
   <meta name="keywords" content="Grand Slam Entertainment Branson, glow golf Branson MO, laser tag Branson Missouri, escape rooms Branson, Ballparks of America entertainment, things to do in Branson, indoor entertainment Branson, blacklight mini golf Branson, zombie laser tag Branson, family fun Branson MO" />
   <meta property="og:title" content="Grand Slam Entertainment | Branson, MO" />
-  <meta property="og:description" content="Three epic experiences. One grand time. Glow Golf + Zombie Laser Tag + Escape Rooms. $35 Triple Play at Ballparks of America, Branson, MO." />
+  <meta property="og:description" content="Glow Golf + Zombie Laser Tag. $10 each or $18 Double Play at Ballparks of America, Branson, MO. Escape Rooms coming soon." />
   <meta property="og:type" content="website" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "AmusementPark",
     "name": "Grand Slam Entertainment",
-    "description": "Three epic entertainment experiences: Glow Golf, Zombie Laser Tag, and Escape Rooms at Ballparks of America in Branson, MO.",
+    "description": "Glow Golf and Zombie Laser Tag at Ballparks of America in Branson, MO. Escape Rooms coming soon.",
     "address": { "@type": "PostalAddress", "addressLocality": "Branson", "addressRegion": "MO", "addressCountry": "US" },
-    "priceRange": "$35",
+    "priceRange": "$10-$18",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Triple Play Package",
+      "name": "Grand Slam Entertainment Pricing",
       "itemListElement": [
-        { "@type": "Offer", "name": "Grand Slam Glow Mini Golf", "price": "35", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Operation Outbreak Zombie Laser Tag", "price": "35", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "The Skeleton Key Escape Rooms", "price": "35", "priceCurrency": "USD" }
+        { "@type": "Offer", "name": "Grand Slam Glow Mini Golf", "price": "10", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Operation Outbreak Zombie Laser Tag", "price": "10", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Double Play (Glow Golf + Laser Tag)", "price": "18", "priceCurrency": "USD" }
       ]
     }
   }
@@ -148,6 +148,12 @@
     .pricing-note span{color:var(--green)}
     .pricing-poster{margin:2rem auto 0;max-width:500px;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 0 1px rgba(57,255,20,0.15)}
     .pricing-poster img{width:100%;display:block}
+
+    /* ── FLOATING ORBS (ambient background accent) ── */
+    .float-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+    .float-orbs .orb{position:absolute;border-radius:50%;filter:blur(45px);animation:orb-drift ease-in-out infinite}
+    @keyframes orb-drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(4vw,-3vh) scale(1.15)}66%{transform:translate(-3vw,3vh) scale(0.9)}}
+    @media(prefers-reduced-motion:reduce){.float-orbs .orb{animation:none}}
 
     /* ── LAYOUT ── */
     .wrap{max-width:1200px;margin:0 auto;padding:5rem 2rem;position:relative;z-index:1}
@@ -407,11 +413,11 @@
     <div class="hero-pills">
       <div class="pill pill-g">⛳ Glow Golf</div>
       <div class="pill pill-o">🔫 Zombie Laser Tag</div>
-      <div class="pill pill-b">🔐 Escape Rooms</div>
+      <div class="pill pill-b">🔐 Escape Rooms — Coming Soon</div>
     </div>
 
     <div class="hero-btns">
-      <a href="#book" class="btn-primary">Book Now — $35</a>
+      <a href="#book" class="btn-primary">Book Now — $18</a>
       <a href="#attractions" class="btn-outline">Explore Attractions</a>
     </div>
   </div>
@@ -424,6 +430,11 @@
 
 <!-- PRICING -->
 <section class="pricing-band" id="pricing">
+  <div class="float-orbs" aria-hidden="true">
+    <div class="orb" style="left:8%;top:15%;width:180px;height:180px;background:radial-gradient(circle,rgba(57,255,20,0.35),transparent 70%);animation-duration:19s;"></div>
+    <div class="orb" style="right:10%;top:55%;width:220px;height:220px;background:radial-gradient(circle,rgba(255,140,0,0.3),transparent 70%);animation-duration:23s;animation-delay:-4s;"></div>
+    <div class="orb" style="left:35%;bottom:5%;width:160px;height:160px;background:radial-gradient(circle,rgba(0,191,255,0.28),transparent 70%);animation-duration:17s;animation-delay:-9s;"></div>
+  </div>
   <div class="pricing-inner">
     <p class="pricing-label">Pick Your Play · Branson, MO</p>
     <div class="pricing-title">Choose Your Experience</div>
@@ -442,47 +453,41 @@
         <div style="font-family:'Bebas Neue',cursive;font-size:3rem;color:#FF8C00;text-shadow:0 0 20px rgba(255,140,0,0.5);line-height:1;">$10</div>
         <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);">Per Person</div>
       </div>
-      <div style="background:#0a0a14;padding:1.5rem 1rem;text-align:center;">
+      <div style="background:#0a0a14;padding:1.5rem 1rem;text-align:center;opacity:0.6;">
         <div class="neon-text-blue" style="font-size:1rem;letter-spacing:3px;margin-bottom:0.4rem;">Escape Rooms</div>
-        <div style="font-family:'Bebas Neue',cursive;font-size:3rem;color:#00BFFF;text-shadow:0 0 20px rgba(0,191,255,0.5);line-height:1;">$25</div>
-        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);">Per Person</div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:1.6rem;color:#00BFFF;text-shadow:0 0 20px rgba(0,191,255,0.5);line-height:1;">Coming<br/>Soon</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);">&nbsp;</div>
       </div>
     </div>
     <div style="font-family:'Oswald',sans-serif;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:2.5rem;">
-      Individually: <span style="color:#fff;text-decoration:line-through;">$45</span> per person
+      Individually: <span style="color:#fff;text-decoration:line-through;">$20</span> per person
     </div>
 
     <!-- COMBO PRICES -->
-    <div style="margin-bottom:0.75rem;font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--gray);">Save More With Combos!</div>
+    <div style="margin-bottom:0.75rem;font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--gray);">Save More With A Combo!</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:700px;margin:0 auto 2.5rem;">
 
       <!-- DOUBLE PLAY -->
-      <div class="neon-sign ns-orange" style="padding:1.5rem;text-align:center;border-radius:8px;flex-direction:column;display:flex;align-items:center;gap:0.5rem;">
+      <div class="neon-sign ns-orange" style="padding:1.5rem;text-align:center;border-radius:8px;flex-direction:column;display:flex;align-items:center;gap:0.5rem;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0.5rem;right:0.75rem;font-family:'Oswald',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;background:#FF8C00;color:#000;padding:0.2rem 0.5rem;border-radius:2px;font-weight:700;">BEST VALUE</div>
         <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;color:#FF8C00;margin-bottom:0.25rem;">Double Play</div>
-        <div style="font-family:'Bebas Neue',cursive;font-size:3.5rem;color:#FF8C00;text-shadow:0 0 20px rgba(255,140,0,0.6);line-height:1;">$30</div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:3.5rem;color:#FF8C00;text-shadow:0 0 20px rgba(255,140,0,0.6);line-height:1;">$18</div>
         <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Per Person</div>
         <div style="font-family:'Inter',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.25rem;line-height:1.5;">
-          Laser Tag + Escape Rooms<br/>or Glow Golf + Escape Rooms
+          Glow Golf + Laser Tag
         </div>
       </div>
 
-      <!-- TRIPLE PLAY -->
-      <div class="neon-sign ns-green" style="padding:1.5rem;text-align:center;border-radius:8px;flex-direction:column;display:flex;align-items:center;gap:0.5rem;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0.5rem;right:0.75rem;font-family:'Oswald',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;background:#39FF14;color:#000;padding:0.2rem 0.5rem;border-radius:2px;font-weight:700;">BEST VALUE</div>
+      <!-- TRIPLE PLAY (COMING SOON) -->
+      <div class="neon-sign ns-green" style="padding:1.5rem;text-align:center;border-radius:8px;flex-direction:column;display:flex;align-items:center;justify-content:center;gap:0.5rem;position:relative;overflow:hidden;opacity:0.6;">
         <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;color:#39FF14;margin-bottom:0.25rem;">Triple Play</div>
-        <div style="font-family:'Bebas Neue',cursive;font-size:3.5rem;color:#39FF14;text-shadow:0 0 20px rgba(57,255,20,0.6);line-height:1;">$35</div>
-        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Per Person</div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:2rem;color:#39FF14;text-shadow:0 0 20px rgba(57,255,20,0.6);line-height:1;">Coming Soon</div>
         <div style="font-family:'Inter',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.25rem;line-height:1.5;">
-          Laser Tag + Glow Golf<br/>+ Escape Rooms
+          Glow Golf + Laser Tag<br/>+ Escape Rooms
         </div>
       </div>
     </div>
 
-    <!-- Pricing flyer image -->
-    <div class="pricing-poster">
-      <img src="triple-play-poster.jpg" alt="Grand Slam Entertainment Triple Play — $35 for Glow Golf, Zombie Laser Tag, and Escape Rooms in Branson MO" loading="lazy" style="border-radius:8px 8px 0 0;" />
-      <img src="pick-your-play-pricing.png" alt="Grand Slam Entertainment Pick Your Play pricing guide Branson MO" loading="lazy" style="border-radius:0 0 8px 8px;" />
-    </div>
     <br /><br />
     <a href="#book" class="btn-primary">Book Now</a>
   </div>
@@ -499,9 +504,9 @@
     <div class="neon-sign-text neon-text-orange">Laser Tag</div>
     <div class="neon-sign-sub">Zombie Apocalypse</div>
   </div>
-  <div class="neon-sign ns-blue">
+  <div class="neon-sign ns-blue" style="opacity:0.6;">
     <div class="neon-sign-text neon-text-blue">Escape Rooms</div>
-    <div class="neon-sign-sub">The Skeleton Key</div>
+    <div class="neon-sign-sub">Coming Soon</div>
   </div>
 </div>
 <!-- TUBE DIVIDER -->
@@ -518,7 +523,7 @@
 <div class="wrap" style="padding-bottom: 2rem;">
   <p class="sec-label">— Our Attractions</p>
   <h2 class="sec-title">Three Epic<br />Experiences</h2>
-  <p class="sec-body">Branson's most unique entertainment complex. Three fully themed worlds under one roof at Ballparks of America. One ticket gets you all three.</p>
+  <p class="sec-body">Branson's most unique entertainment complex. Fully themed worlds under one roof at Ballparks of America — Glow Golf and Laser Tag open now, Escape Rooms coming soon.</p>
 </div>
 
 <!-- ATTRACTIONS -->
@@ -540,7 +545,7 @@
         <div class="feat"><div class="dot dot-g"></div>18 themed blacklight holes</div>
         <div class="feat"><div class="dot dot-g"></div>Immersive neon murals & UV art</div>
         <div class="feat"><div class="dot dot-g"></div>Perfect for all ages & skill levels</div>
-        <div class="feat"><div class="dot dot-g"></div>Included in the Triple Play bundle</div>
+        <div class="feat"><div class="dot dot-g"></div>Included in the Double Play combo</div>
       </div>
       <a href="#book" class="btn-g">Book Glow Golf</a>
     </div>
@@ -572,7 +577,7 @@
         <div class="feat"><div class="dot dot-o"></div>Full zombie apocalypse themed arena</div>
         <div class="feat"><div class="dot dot-o"></div>State-of-the-art laser gear &amp; vests</div>
         <div class="feat"><div class="dot dot-o"></div>Fun for all ages — kids to adults</div>
-        <div class="feat"><div class="dot dot-o"></div>Included in the Triple Play bundle</div>
+        <div class="feat"><div class="dot dot-o"></div>Included in the Double Play combo</div>
       </div>
       <a href="#book" class="btn-o">Join the Battle</a>
     </div>
@@ -589,33 +594,30 @@
 </div>
 
 
-  <!-- ESCAPE ROOMS -->
+  <!-- ESCAPE ROOMS (COMING SOON) -->
   <article class="attraction-row" itemscope itemtype="https://schema.org/EntertainmentBusiness">
-    <div class="attr-visual">
-      <img src="skeleton-key-room.jpg" alt="The Skeleton Key Escape Rooms interior at Grand Slam Entertainment Branson MO" loading="lazy" />
+    <div class="attr-visual" style="position:relative;">
+      <img src="skeleton-key-room.jpg" alt="The Skeleton Key Escape Rooms interior at Grand Slam Entertainment Branson MO" loading="lazy" style="filter:grayscale(0.4) brightness(0.55);" />
       <div class="attr-fade attr-fade-right"></div>
+      <div style="position:absolute;top:1.5rem;left:1.5rem;background:#00BFFF;color:#000;font-family:'Oswald',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:0.5rem 1rem;border-radius:4px;">Coming Soon</div>
     </div>
     <div class="attr-content">
       <div class="attr-num">03</div>
-      <div class="attr-badge badge-b">Attraction 03</div>
+      <div class="attr-badge badge-b">Coming Soon</div>
       <h2 class="attr-name" itemprop="name">The Skeleton<br />Key Escape Rooms</h2>
       <p class="attr-sub">Can You Escape Before Time Runs Out?</p>
-      <p class="attr-desc" itemprop="description">The clock is ticking. Solve cryptic puzzles, uncover hidden clues, and race against time in The Skeleton Key — Branson's most immersive escape room experience. Uniquely themed rooms challenge your mind and your teamwork under pressure.</p>
+      <p class="attr-desc" itemprop="description">We're putting the finishing touches on The Skeleton Key — Branson's most immersive escape room experience. Cryptic puzzles, hidden clues, and a race against the clock are on the way. Check back soon for opening details.</p>
       <div class="attr-features">
         <div class="feat"><div class="dot dot-b"></div>Fully immersive themed rooms</div>
         <div class="feat"><div class="dot dot-b"></div>60-minute high-stakes challenge</div>
         <div class="feat"><div class="dot dot-b"></div>Ideal for date nights & team bonding</div>
-        <div class="feat"><div class="dot dot-b"></div>Included in the Triple Play bundle</div>
+        <div class="feat"><div class="dot dot-b"></div>Opening soon — stay tuned!</div>
       </div>
-      <a href="#book" class="btn-b-out">Enter If You Dare</a>
+      <a href="#book" class="btn-b-out">Get Notified When It Opens</a>
     </div>
   </article>
 
 </section>
-<!-- SKELETON KEY PROMO -->
-<div style="background:#000;padding:2rem;text-align:center;">
-  <img src="skeleton-key-ad.png" alt="The Skeleton Key Escape Rooms — Can You Escape Before Time Runs Out? Branson MO" loading="lazy" style="max-width:500px;width:100%;border-radius:8px;box-shadow:0 0 40px rgba(0,191,255,0.25);" />
-</div>
 
 
 <!-- NEON HEADLINE SIGN -->
@@ -632,8 +634,8 @@
 <div style="background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.04);">
   <div class="wrap" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="stats-row">
-      <div class="stat reveal"><div class="stat-n">3</div><div class="stat-l">Epic Attractions</div></div>
-      <div class="stat reveal"><div class="stat-n">$35</div><div class="stat-l">All-In Price</div></div>
+      <div class="stat reveal"><div class="stat-n">2</div><div class="stat-l">Attractions Open Now</div></div>
+      <div class="stat reveal"><div class="stat-n">$18</div><div class="stat-l">Double Play Price</div></div>
       <div class="stat reveal"><div class="stat-n">18</div><div class="stat-l">Glow Golf Holes</div></div>
       <div class="stat reveal"><div class="stat-n">100%</div><div class="stat-l">Indoors · Rain-Proof</div></div>
     </div>
@@ -724,7 +726,7 @@
     <div class="perks-grid">
       <div class="perk" style="animation:fadeUp 0.6s ease 0.1s both;"><div class="perk-ico">👨‍👩‍👧‍👦</div><div class="perk-t">Fun for All Ages</div><p class="perk-d">Toddlers to grandparents — everyone wins at Grand Slam. Our attractions are designed to delight every member of your crew.</p></div>
       <div class="perk"><div class="perk-ico">👥</div><div class="perk-t">Perfect for Groups</div><p class="perk-d">Birthday parties, corporate outings, family reunions — we have the space and the experience to handle any size group.</p></div>
-      <div class="perk"><div class="perk-ico">🎟️</div><div class="perk-t">One Price. Three Thrills.</div><p class="perk-d">$35 per person unlocks all three attractions. No nickel-and-diming. Just pure, non-stop entertainment from start to finish.</p></div>
+      <div class="perk"><div class="perk-ico">🎟️</div><div class="perk-t">Simple, Honest Pricing</div><p class="perk-d">$10 per person for Glow Golf or Laser Tag, or grab both with the Double Play combo for $18. No nickel-and-diming.</p></div>
       <div class="perk"><div class="perk-ico">🌧️</div><div class="perk-t">100% Rain-Proof</div><p class="perk-d">Branson weather? Doesn't matter here. Grand Slam is fully indoors — a guaranteed great time no matter what's happening outside.</p></div>
       <div class="perk"><div class="perk-ico">📍</div><div class="perk-t">Prime Location</div><p class="perk-d">Right at Ballparks of America in the heart of Branson. Easy to find, plenty of parking, impossible to forget.</p></div>
       <div class="perk"><div class="perk-ico">🏆</div><div class="perk-t">Memories That Last</div><p class="perk-d">This isn't another stop on your Branson checklist — it's the highlight. Three worlds. Zero boring moments.</p></div>
@@ -753,8 +755,8 @@
       <a href="#book" class="btn-g" style="white-space:nowrap;flex-shrink:0;">Book a Group →</a>
     </div>
     <div class="events-grid">
-      <div class="ev eg"><div class="ev-ico">🎂</div><div class="ev-t">Birthday Parties</div><p class="ev-d">Make their birthday unforgettable with three epic attractions, private group space, and memories that blow any restaurant party out of the water.</p></div>
-      <div class="ev er"><div class="ev-ico">🏢</div><div class="ev-t">Corporate Events</div><p class="ev-d">Escape rooms and laser tag are proven team-building activities. Combine all three for an outing your team will talk about for years.</p></div>
+      <div class="ev eg"><div class="ev-ico">🎂</div><div class="ev-t">Birthday Parties</div><p class="ev-d">Make their birthday unforgettable with Glow Golf and Laser Tag, private group space, and memories that blow any restaurant party out of the water.</p></div>
+      <div class="ev er"><div class="ev-ico">🏢</div><div class="ev-t">Corporate Events</div><p class="ev-d">Laser tag is a proven team-building activity, and escape rooms are coming soon. Combine them for an outing your team will talk about for years.</p></div>
       <div class="ev eb"><div class="ev-ico">💕</div><div class="ev-t">Date Nights</div><p class="ev-d">Skip dinner and a movie. Try glow golf, fight zombies together, and crack the escape room — the ultimate Branson date night.</p></div>
       <div class="ev eo"><div class="ev-ico">🎒</div><div class="ev-t">School & Youth Groups</div><p class="ev-d">Safe, supervised, and absolutely thrilling. Grand Slam is a top-rated choice for school trips and youth group outings in the Branson area.</p></div>
     </div>
@@ -777,12 +779,12 @@
         <p>Operation Outbreak is Branson's most thrilling laser tag experience. Set in a fully themed zombie apocalypse arena, players battle through intense missions with state-of-the-art equipment and immersive special effects. The most unique laser tag in Southwest Missouri — great for groups of all ages.</p>
       </div>
       <div class="seo-blk">
-        <h3>Escape Rooms Near Branson MO</h3>
-        <p>The Skeleton Key Escape Rooms challenge your mind, your teamwork, and your nerve. With fully immersive themed room experiences, The Skeleton Key is a must-do Branson attraction. Perfect for families, corporate groups, and adventurous couples looking for something truly different.</p>
+        <h3>Escape Rooms Near Branson MO — Coming Soon</h3>
+        <p>The Skeleton Key Escape Rooms is coming soon to Grand Slam Entertainment. Fully immersive themed room experiences will challenge your mind, your teamwork, and your nerve. Check back for opening dates — it's shaping up to be a must-do Branson attraction.</p>
       </div>
       <div class="seo-blk">
         <h3>Indoor Family Fun Branson</h3>
-        <p>Grand Slam Entertainment is Branson's premier indoor family entertainment complex. Located at Ballparks of America, our Triple Play bundle — all three attractions for just $35 — is the best value in Branson for families, tourists, and groups looking for unforgettable fun indoors.</p>
+        <p>Grand Slam Entertainment is Branson's premier indoor family entertainment complex. Located at Ballparks of America, play Glow Golf or Laser Tag for $10 each, or grab our Double Play combo — both attractions for just $18 — the best value in Branson for families, tourists, and groups looking for unforgettable fun indoors.</p>
       </div>
     </div>
   </div>
@@ -796,7 +798,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">How much does it cost? <span class="faq-arr">+</span></button>
-        <div class="faq-a">Our Triple Play package is $35 per person and includes all three attractions: Glow Golf, Operation Outbreak Zombie Laser Tag, and The Skeleton Key Escape Rooms. Best value in Branson.</div>
+        <div class="faq-a">Glow Golf is $10 per person and Operation Outbreak Zombie Laser Tag is $10 per person. Grab our Double Play combo and play both for $18 per person. The Skeleton Key Escape Rooms is coming soon.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Where is Grand Slam Entertainment located? <span class="faq-arr">+</span></button>
@@ -811,8 +813,8 @@
         <div class="faq-a">Walk-ins are welcome, but we strongly recommend booking in advance — especially on weekends and peak Branson season. Reserving online guarantees your spot.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can I do all three in one visit? <span class="faq-arr">+</span></button>
-        <div class="faq-a">Yes! The Triple Play package gets you into all three attractions and you can experience them in any order. Most guests complete all three in 2–3 hours.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Can I do Glow Golf and Laser Tag in one visit? <span class="faq-arr">+</span></button>
+        <div class="faq-a">Yes! The Double Play combo gets you into both Glow Golf and Laser Tag, and you can experience them in any order. Most guests complete both in about an hour. The Skeleton Key Escape Rooms will join the lineup soon.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Do you host birthday parties and private events? <span class="faq-arr">+</span></button>
@@ -824,7 +826,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">How long does each attraction take? <span class="faq-arr">+</span></button>
-        <div class="faq-a">Glow Golf typically takes 45–60 minutes for 18 holes. Laser Tag sessions run about 20–30 minutes. Escape Rooms are 60-minute experiences. Plan on 2–3 hours total for all three — more if you want to linger and soak it all in.</div>
+        <div class="faq-a">Glow Golf typically takes 45–60 minutes for 18 holes. Laser Tag sessions run about 20–30 minutes. Plan on about an hour for the Double Play combo. Escape Rooms (60-minute experiences) are coming soon.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Is Grand Slam Entertainment accessible? <span class="faq-arr">+</span></button>
@@ -835,8 +837,8 @@
         <div class="faq-a">Wear comfortable clothes — especially for laser tag. White and neon-colored clothing looks amazing under the UV blacklights in the glow golf course! Closed-toe shoes are recommended for all attractions. Leave the heels at home.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can I buy just one or two attractions? <span class="faq-arr">+</span></button>
-        <div class="faq-a">Absolutely! You can purchase Glow Golf ($10/person) or Laser Tag ($10/person) or Escape Rooms ($25/person) individually, or grab the Double Play combo (any 2 for $30) or the Triple Play bundle (all 3 for $35). The Triple Play is by far the best value.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Can I buy just one attraction? <span class="faq-arr">+</span></button>
+        <div class="faq-a">Absolutely! You can purchase Glow Golf ($10/person) or Laser Tag ($10/person) individually, or grab the Double Play combo and get both for $18/person — the best value. The Skeleton Key Escape Rooms is coming soon and will be added to the lineup once it opens.</div>
       </div>
     </div>
 
@@ -863,8 +865,13 @@
     <img src="glow-golf-kid-putting.jpg" alt="Kid putting glow golf" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
   </div>
 </div>
-<section id="book" style="position:relative;z-index:1;background:linear-gradient(180deg,#020204 0%,#040810 50%,#020204 100%);border-top:1px solid rgba(57,255,20,0.15);padding:5rem 2rem;">
-  <div style="max-width:680px;margin:0 auto;">
+<section id="book" style="position:relative;z-index:1;background:linear-gradient(180deg,#020204 0%,#040810 50%,#020204 100%);border-top:1px solid rgba(57,255,20,0.15);padding:5rem 2rem;overflow:hidden;">
+  <div class="float-orbs" aria-hidden="true">
+    <div class="orb" style="left:12%;top:8%;width:200px;height:200px;background:radial-gradient(circle,rgba(57,255,20,0.3),transparent 70%);animation-duration:21s;"></div>
+    <div class="orb" style="right:8%;top:35%;width:240px;height:240px;background:radial-gradient(circle,rgba(255,32,32,0.22),transparent 70%);animation-duration:25s;animation-delay:-6s;"></div>
+    <div class="orb" style="right:20%;bottom:8%;width:170px;height:170px;background:radial-gradient(circle,rgba(0,191,255,0.25),transparent 70%);animation-duration:18s;animation-delay:-11s;"></div>
+  </div>
+  <div style="max-width:680px;margin:0 auto;position:relative;z-index:1;">
 
     <!-- Header -->
     <div style="text-align:center;margin-bottom:3rem;">
@@ -912,30 +919,23 @@
               <div class="pkg-price">$10 <span>/ person</span></div>
             </div>
 
-            <div class="pkg-card pkg-blue" onclick="selectPkg(this,'Escape Rooms',25)" role="button" tabindex="0">
+            <div class="pkg-card pkg-red best-value" onclick="selectPkg(this,'Double Play',18)" role="button" tabindex="0" style="grid-column:span 2;position:relative;">
+              <div style="position:absolute;top:-1px;right:1.5rem;background:#FF8C00;color:#000;font-family:'Oswald',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:2px;padding:0.2rem 0.7rem;border-radius:0 0 4px 4px;text-transform:uppercase;">Best Value</div>
+              <div style="display:flex;align-items:center;gap:1.5rem;width:100%;justify-content:center;flex-wrap:wrap;">
+                <div class="pkg-icon" style="font-size:2rem;">⚡</div>
+                <div>
+                  <div class="pkg-name neon-text-red" style="font-size:1.8rem;">Double Play</div>
+                  <div class="pkg-sub">Glow Golf + Laser Tag</div>
+                </div>
+                <div class="pkg-price" style="font-size:2rem;">$18 <span>/ person</span></div>
+              </div>
+            </div>
+
+            <div class="pkg-card pkg-blue" style="grid-column:span 2;opacity:0.55;cursor:not-allowed;pointer-events:none;" aria-disabled="true">
               <div class="pkg-icon">🔐</div>
               <div class="pkg-name neon-text-blue">Escape Rooms</div>
-              <div class="pkg-sub">Skeleton Key</div>
-              <div class="pkg-price">$25 <span>/ person</span></div>
-            </div>
-
-            <div class="pkg-card pkg-red" onclick="selectPkg(this,'Double Play',30)" role="button" tabindex="0">
-              <div class="pkg-icon">⚡</div>
-              <div class="pkg-name neon-text-red">Double Play</div>
-              <div class="pkg-sub">Any 2 Attractions</div>
-              <div class="pkg-price">$30 <span>/ person</span></div>
-            </div>
-
-            <div class="pkg-card pkg-green best-value" onclick="selectPkg(this,'Triple Play',35)" role="button" tabindex="0" style="grid-column:span 2;position:relative;">
-              <div style="position:absolute;top:-1px;right:1.5rem;background:var(--green);color:#000;font-family:'Oswald',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:2px;padding:0.2rem 0.7rem;border-radius:0 0 4px 4px;text-transform:uppercase;">Best Value</div>
-              <div style="display:flex;align-items:center;gap:1.5rem;width:100%;justify-content:center;flex-wrap:wrap;">
-                <div class="pkg-icon" style="font-size:2rem;">🏆</div>
-                <div>
-                  <div class="pkg-name neon-text-green" style="font-size:1.8rem;">Triple Play</div>
-                  <div class="pkg-sub">Glow Golf + Laser Tag + Escape Rooms</div>
-                </div>
-                <div class="pkg-price" style="font-size:2rem;">$35 <span>/ person</span></div>
-              </div>
+              <div class="pkg-sub">Skeleton Key — Coming Soon</div>
+              <div class="pkg-price">Coming Soon</div>
             </div>
 
           </div>
@@ -1100,7 +1100,7 @@
         <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.6rem;">
           <a href="https://maps.google.com/?q=Ballparks+of+America+Branson+MO" target="_blank" rel="noopener" class="btn-g">📍 Get Directions</a>
           <a href="tel:+14178001234" style="background:none;border:2px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;padding:0.7rem 1.2rem;border-radius:4px;text-decoration:none;text-align:center;">📞 Call Us</a>
-          <a href="#book" style="background:none;border:2px solid rgba(57,255,20,0.3);color:var(--green);font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;padding:0.7rem 1.2rem;border-radius:4px;text-decoration:none;text-align:center;">🎟️ Book Now — $35</a>
+          <a href="#book" style="background:none;border:2px solid rgba(57,255,20,0.3);color:var(--green);font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;padding:0.7rem 1.2rem;border-radius:4px;text-decoration:none;text-align:center;">🎟️ Book Now — $18</a>
         </div>
         <div style="margin-top:1.5rem;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
           <img src="glow-sign.jpg" alt="Grand Slam Glow Mini Golf illuminated sign Branson MO" style="width:100%;display:block;object-fit:cover;max-height:160px;" loading="lazy" />
@@ -1155,8 +1155,8 @@
       <ul class="ft-links">
         <li><a href="#attractions">Grand Slam Glow Golf</a></li>
         <li><a href="#attractions">Operation Outbreak Laser Tag</a></li>
-        <li><a href="#attractions">The Skeleton Key Escape Rooms</a></li>
-        <li><a href="#pricing">Triple Play — $35</a></li>
+        <li><a href="#attractions">The Skeleton Key Escape Rooms (Coming Soon)</a></li>
+        <li><a href="#pricing">Double Play — $18</a></li>
       </ul>
     </div>
     <div class="ft-col">
@@ -1371,10 +1371,15 @@
 
   function rand(a,b){ return a + Math.random()*(b-a); }
 
+  // Scale effect density to canvas area so the "orbs" look just as rich on
+  // a wide desktop hero as they do on a narrow mobile one, instead of the
+  // same fixed particle count getting spread thin on bigger screens.
+  var scale = Math.max(1, Math.min(3, Math.sqrt((W*H)/(390*760))));
+
   // UV Particles
   var PCOLS = ['rgba(57,255,20,','rgba(185,60,255,','rgba(0,191,255,','rgba(255,32,32,','rgba(255,210,0,'];
   var particles = [];
-  for(var i=0;i<65;i++) particles.push({
+  for(var i=0;i<Math.round(65*scale);i++) particles.push({
     x:rand(0,1), y:rand(0,1), vx:rand(-0.00012,0.00012), vy:rand(-0.00045,-0.00015),
     r:rand(0.8,2.4), col:PCOLS[Math.floor(rand(0,5))], a:rand(0.3,0.9),
     life:rand(0,1), spd:rand(0.002,0.006)
@@ -1383,24 +1388,24 @@
   // Golf winding paths
   var PCOLVS = ['rgba(57,255,20,','rgba(200,55,255,','rgba(0,200,255,','rgba(57,255,20,','rgba(160,80,255,','rgba(0,230,200,'];
   var paths = [];
-  for(var p=0;p<6;p++){
+  for(var p=0;p<Math.round(6*scale);p++){
     var pts=[];
     for(var q=0;q<8;q++) pts.push({x:rand(0,1),y:rand(0,1)});
-    paths.push({pts:pts, col:PCOLVS[p%6], w:rand(0.5,1.4), phase:rand(0,TAU), spd:rand(0.0003,0.0009), a:rand(0.06,0.16)});
+    paths.push({pts:pts, col:PCOLVS[p%PCOLVS.length], w:rand(0.5,1.4), phase:rand(0,TAU), spd:rand(0.0003,0.0009), a:rand(0.06,0.16)});
   }
 
   // Laser beams
   var LCOLS=['rgba(255,20,20,','rgba(20,255,80,','rgba(255,20,20,','rgba(0,220,80,','rgba(255,40,40,','rgba(40,255,100,','rgba(255,20,20,','rgba(20,255,60,'];
   var lasers=[];
-  for(var l=0;l<8;l++) lasers.push({
-    sx:rand(0,1), sy:rand(0,1), angle:rand(0,TAU), col:LCOLS[l],
+  for(var l=0;l<Math.round(8*scale);l++) lasers.push({
+    sx:rand(0,1), sy:rand(0,1), angle:rand(0,TAU), col:LCOLS[l%LCOLS.length],
     phase:rand(0,TAU), spd:rand(0.0002,0.0006), len:rand(0.18,0.52), w:rand(0.6,1.8), a:rand(0.05,0.16)
   });
 
   // Escape-room symbols
   var SCOLS=['rgba(0,191,255,','rgba(185,55,255,','rgba(57,255,20,','rgba(0,191,255,','rgba(185,55,255,'];
   var symbols=[];
-  for(var s=0;s<12;s++) symbols.push({
+  for(var s=0;s<Math.round(12*scale);s++) symbols.push({
     x:rand(0.04,0.96), y:rand(0.04,0.96), type:Math.floor(rand(0,5)),
     sz:rand(9,22), rot:rand(0,TAU), rSpd:rand(-0.0007,0.0007),
     a:rand(0.04,0.11), col:SCOLS[Math.floor(rand(0,5))]
@@ -1409,7 +1414,7 @@
   // Fog blobs
   var FCOLS=['rgba(255,20,20,','rgba(57,255,20,','rgba(0,191,255,','rgba(185,55,255,','rgba(255,120,0,','rgba(57,255,20,'];
   var fogs=[];
-  for(var f=0;f<6;f++) fogs.push({
+  for(var f=0;f<Math.round(6*scale);f++) fogs.push({
     x:rand(0,1), y:rand(0,1), rx:rand(0.10,0.26), ry:rand(0.07,0.18),
     col:FCOLS[f%6], a:rand(0.012,0.028), phase:rand(0,TAU), spd:rand(0.00025,0.0007)
   });
