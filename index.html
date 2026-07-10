@@ -197,8 +197,8 @@
     /* ── GALLERY ── */
     .gallery-section{background:var(--dark2);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)}
     .gal-item{overflow:hidden;position:relative}
-    .gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease,filter 0.3s ease;filter:brightness(0.8) saturate(1.1)}
-    .gal-item:hover img{transform:scale(1.07);filter:brightness(1) saturate(1.3)}
+    .gal-item img,.gal-item video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease,filter 0.3s ease;filter:brightness(0.8) saturate(1.1)}
+    .gal-item:hover img,.gal-item:hover video{transform:scale(1.07);filter:brightness(1) saturate(1.3)}
     .gal-label{position:absolute;bottom:0.75rem;left:0.85rem;font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45)}
 
     /* ── STATS ── */
@@ -674,6 +674,10 @@
     <div class="gal-item" style="grid-column:span 2;grid-row:span 2;">
       <img src="glow-golf-full-course-action.jpg" alt="Families playing blacklight glow mini golf at Grand Slam Entertainment Branson MO" loading="lazy" />
       <div class="gal-label">Full Course · Live Action</div>
+    </div>
+    <div class="gal-item" style="grid-column:span 2;grid-row:span 2;">
+      <video src="glow-golf-video-2.mp4" autoplay muted loop playsinline></video>
+      <div class="gal-label">Glow Golf · In Action</div>
     </div>
     <div class="gal-item">
       <img src="glow-golf-baseball-mural.jpg" alt="Baseball neon mural inside Grand Slam Glow Golf Branson" loading="lazy" />
