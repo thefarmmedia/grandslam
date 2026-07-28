@@ -30,6 +30,21 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://REPLACE-WITH-YOUR-DOMAIN.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Attractions", "item": "https://REPLACE-WITH-YOUR-DOMAIN.com/#attractions" },
+      { "@type": "ListItem", "position": 3, "name": "Pricing", "item": "https://REPLACE-WITH-YOUR-DOMAIN.com/#pricing" },
+      { "@type": "ListItem", "position": 4, "name": "Gallery", "item": "https://REPLACE-WITH-YOUR-DOMAIN.com/#gallery" },
+      { "@type": "ListItem", "position": 5, "name": "Groups & Events", "item": "https://REPLACE-WITH-YOUR-DOMAIN.com/#groups" },
+      { "@type": "ListItem", "position": 6, "name": "FAQ", "item": "https://REPLACE-WITH-YOUR-DOMAIN.com/#faq" },
+      { "@type": "ListItem", "position": 7, "name": "Reviews", "item": "https://REPLACE-WITH-YOUR-DOMAIN.com/#reviews" }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -54,6 +69,15 @@
     .nav-cta{background:var(--green)!important;color:#000!important;padding:0.5rem 1.3rem!important;border-radius:3px;font-weight:700!important;-webkit-text-fill-color:#000!important;letter-spacing:1.5px!important;transition:box-shadow 0.2s,transform 0.2s!important}
     .nav-cta:hover{box-shadow:0 0 24px rgba(57,255,20,0.6)!important;transform:translateY(-1px)!important;color:#000!important}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+
+    /* ── BREADCRUMBS ── */
+    .breadcrumb-bar{position:sticky;top:68px;z-index:900;background:rgba(2,2,4,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(57,255,20,0.08);padding:0.55rem 2.5rem}
+    .breadcrumb-inner{font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+    .breadcrumb-inner a{color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s}
+    .breadcrumb-inner a:hover{color:var(--green)}
+    .breadcrumb-inner .bc-sep{margin:0 0.5rem;opacity:0.35}
+    .breadcrumb-inner #bcCurrent{color:var(--green)}
+    @media(max-width:700px){.breadcrumb-bar{padding:0.5rem 1.25rem}.breadcrumb-inner{font-size:0.62rem}}
     .hamburger span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
     .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(2,2,4,0.99);backdrop-filter:blur(20px);border-bottom:1px solid rgba(57,255,20,0.15);padding:1.5rem 2rem;z-index:999;flex-direction:column;gap:0.5rem}
     .mobile-menu.open{display:flex}
@@ -255,6 +279,15 @@
     .faq-a{display:none;padding:0 1.5rem 1.2rem;color:var(--gray);font-size:0.88rem;line-height:1.7}
     .faq-item.open .faq-a{display:block}
 
+    /* ── REVIEWS ── */
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2rem}
+    .review-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:1.5rem}
+    .review-stars{color:#FFD200;font-size:1rem;letter-spacing:2px;margin-bottom:0.6rem}
+    .review-text{color:rgba(255,255,255,0.75);font-size:0.9rem;line-height:1.65;margin-bottom:0.9rem}
+    .review-author{font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray)}
+    .reviews-empty{text-align:center;background:var(--card);border:1px dashed rgba(255,255,255,0.14);border-radius:8px;padding:2.75rem 2rem;margin-top:2rem}
+    .reviews-empty p{color:var(--gray);font-size:0.9rem;margin-bottom:1.25rem;max-width:480px;margin-left:auto;margin-right:auto}
+
     /* ── CTA ── */
     .cta-section{position:relative;text-align:center;padding:7rem 2rem;overflow:hidden;background:linear-gradient(135deg,#020800,#000d02,#020800);border-top:1px solid rgba(57,255,20,0.12)}
     .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 80% at 50% 50%,rgba(57,255,20,0.09) 0%,transparent 70%)}
@@ -375,6 +408,7 @@
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#groups">Groups</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#book" class="nav-cta">Book Now</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -387,8 +421,18 @@
   <a href="#gallery" onclick="toggleMenu()">Gallery</a>
   <a href="#groups" onclick="toggleMenu()">Groups & Events</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
   <a href="#book" onclick="toggleMenu()" class="mm-cta">Book Now</a>
 </div>
+
+<!-- BREADCRUMBS -->
+<nav class="breadcrumb-bar" id="breadcrumbBar" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="#home">Home</a>
+    <span class="bc-sep" id="bcSep" hidden>/</span>
+    <span id="bcCurrent" aria-current="page"></span>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -883,6 +927,19 @@
   </div>
 </div>
 
+<!-- REVIEWS -->
+<div id="reviews" style="position:relative;z-index:1;background:var(--dark2);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);">
+  <div class="wrap">
+    <p class="sec-label">— Guest Reviews</p>
+    <h2 class="sec-title">What Guests Are Saying</h2>
+    <div id="reviewsGrid" class="reviews-grid"></div>
+    <div id="reviewsEmpty" class="reviews-empty">
+      <p>We're just getting started collecting reviews here — check back soon, or be the first to share your experience!</p>
+      <a href="https://www.google.com/search?q=Grand+Slam+Entertainment+Branson+MO" target="_blank" rel="noopener" class="btn-g">⭐ Leave Us a Review</a>
+    </div>
+  </div>
+</div>
+
 <!-- CTA -->
 <!-- BOOKING SECTION -->
 <!-- BOOKING PHOTO STRIP -->
@@ -1220,6 +1277,94 @@
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
+  // Breadcrumb bar — tracks which section is in view and updates "Home / Section"
+  (function(){
+    var labels = {
+      home: '', attractions: 'Attractions', pricing: 'Pricing', gallery: 'Gallery',
+      groups: 'Groups & Events', faq: 'FAQ', reviews: 'Reviews', book: 'Book Now', location: 'Location'
+    };
+    var sections = Object.keys(labels).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+    var bcCurrent = document.getElementById('bcCurrent');
+    var bcSep = document.getElementById('bcSep');
+    if (!sections.length || !bcCurrent) return;
+
+    function setCurrent(id){
+      var label = labels[id] || '';
+      bcCurrent.textContent = label;
+      bcSep.hidden = !label;
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) setCurrent(entry.target.id);
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      sections.forEach(function(s){ observer.observe(s); });
+    }
+  })();
+
+  // ── REVIEWS ──────────────────────────────────────────────────────────
+  // Add real guest reviews below as they come in — each object renders a
+  // card, and once there's at least one, an AggregateRating + Review
+  // schema is generated automatically FROM THIS DATA (never hand-typed),
+  // so the on-page stars and the SEO schema can never drift out of sync
+  // and there's no risk of publishing a fabricated rating.
+  //
+  // Example entry:
+  // { name: 'Jane D.', rating: 5, text: 'Had a blast playing all three!', date: '2026-06-01' }
+  var reviews = [
+    // Add review objects here
+  ];
+
+  (function renderReviews(){
+    var grid = document.getElementById('reviewsGrid');
+    var empty = document.getElementById('reviewsEmpty');
+    if (!grid || !empty) return;
+    if (!reviews.length) { empty.style.display = ''; return; }
+    empty.style.display = 'none';
+
+    function esc(s){
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    grid.innerHTML = reviews.map(function(r){
+      var stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+      return '<div class="review-card">' +
+        '<div class="review-stars" aria-label="' + r.rating + ' out of 5 stars">' + stars + '</div>' +
+        '<p class="review-text">“' + esc(r.text) + '”</p>' +
+        '<div class="review-author">' + esc(r.name) + '</div>' +
+      '</div>';
+    }).join('');
+
+    var avg = reviews.reduce(function(sum, r){ return sum + r.rating; }, 0) / reviews.length;
+    var schema = {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      'name': 'Grand Slam Entertainment',
+      'aggregateRating': {
+        '@type': 'AggregateRating',
+        'ratingValue': avg.toFixed(1),
+        'reviewCount': reviews.length
+      },
+      'review': reviews.map(function(r){
+        return {
+          '@type': 'Review',
+          'author': { '@type': 'Person', 'name': r.name },
+          'reviewRating': { '@type': 'Rating', 'ratingValue': r.rating, 'bestRating': 5 },
+          'reviewBody': r.text,
+          'datePublished': r.date
+        };
+      })
+    };
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  })();
+
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const open = item.classList.contains('open');
@@ -1385,7 +1530,7 @@
     var btn = document.getElementById('payBtn');
     if(btn){ btn.textContent = 'Processing...'; btn.disabled = true; }
 
-    var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/czc6cwHlB7GFCZBPIP8i/webhook-trigger/54ca2660-b56f-49c8-89b1-9bf7d7bf3ca2';
+    var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/czc6cwHlB7GFCZBPIP8i/webhook-trigger/c3e2bc8a-85cc-4eee-bf88-dd6d09a7a570';
     var total = booking.priceEach * booking.qty;
     var payload = {
       package: booking.pkgName, priceEach: booking.priceEach,
