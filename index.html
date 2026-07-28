@@ -473,7 +473,7 @@
     </div>
 
     <div class="hero-btns">
-      <a href="#book" class="btn-primary">Book Now — $35</a>
+      <a href="#book" class="btn-primary">Reserve Your Spot</a>
       <a href="#attractions" class="btn-outline">Explore Attractions</a>
     </div>
   </div>
@@ -895,7 +895,12 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">What are your hours? <span class="faq-arr">+</span></button>
-        <div class="faq-a">Hours vary by season. Please check our booking page or contact us directly for current hours before your visit.</div>
+        <div class="faq-a">Hours change seasonally:<br/>
+          • <strong>July &amp; August (through Aug 16):</strong> Mon–Sun, 12pm–10pm. Closed Thursdays.<br/>
+          • <strong>Aug 17 – Sep 10:</strong> Closed.<br/>
+          • <strong>Starting Sep 11:</strong> Fridays &amp; Saturdays, 6pm–Midnight.<br/>
+          • <strong>October:</strong> Thursday–Sunday, 6pm–11pm.<br/>
+          Pick a date on our booking page and we'll show you the exact times available.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">How long does each attraction take? <span class="faq-arr">+</span></button>
@@ -1070,10 +1075,15 @@
           <span class="step-title">When Are You Coming?</span>
         </div>
         <div style="padding:2rem;">
-          <p style="color:var(--gray);font-size:0.88rem;margin-bottom:1.5rem;line-height:1.6;">Pick a date and just show up — no appointment needed. We're open every day. Walk in and start playing.</p>
-          <div style="position:relative;margin-bottom:2rem;">
+          <p style="color:var(--gray);font-size:0.88rem;margin-bottom:1.5rem;line-height:1.6;">Pick a date and time to reserve your spot — no payment now, just show up and pay at check-in. Hours change seasonally, so pick a date first and we'll show you what times are open.</p>
+          <div style="position:relative;margin-bottom:1.25rem;">
             <label style="font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:0.5rem;">Visit Date</label>
-            <input type="date" id="visitDate" min="" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:1rem 1.25rem;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:1px;outline:none;transition:border-color 0.2s;cursor:pointer;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'" onchange="checkStep3()" />
+            <input type="date" id="visitDate" min="" max="" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:1rem 1.25rem;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:1px;outline:none;transition:border-color 0.2s;cursor:pointer;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'" onchange="onDateChange()" />
+          </div>
+          <div id="dateClosedMsg" hidden style="background:rgba(255,32,32,0.08);border:1px solid rgba(255,32,32,0.25);border-radius:6px;padding:0.85rem 1.1rem;margin-bottom:1.25rem;color:#ff8080;font-family:'Oswald',sans-serif;font-size:0.82rem;line-height:1.5;"></div>
+          <div id="timeWrap" hidden style="margin-bottom:2rem;">
+            <label style="font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:0.5rem;">Arrival Time</label>
+            <select id="visitTime" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:1rem 1.25rem;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:1px;outline:none;transition:border-color 0.2s;cursor:pointer;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'" onchange="checkStep3()"></select>
           </div>
           <div style="display:flex;gap:0.75rem;">
             <button class="book-back" onclick="goStep(2)">← Back</button>
@@ -1115,7 +1125,7 @@
       <div class="book-step hidden" id="step5">
         <div class="step-header">
           <span class="step-num">Step 5</span>
-          <span class="step-title">Review & Pay</span>
+          <span class="step-title">Review & Reserve</span>
         </div>
         <div style="padding:2rem;">
 
@@ -1138,7 +1148,7 @@
 
           <!-- What happens next -->
           <div style="background:rgba(57,255,20,0.04);border:1px solid rgba(57,255,20,0.1);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:2rem;">
-            <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:0.75rem;">After Payment You'll Receive</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:0.75rem;">After You Reserve You'll Receive</div>
             <div style="display:flex;flex-direction:column;gap:0.5rem;">
               <div style="display:flex;align-items:center;gap:0.75rem;font-family:'Oswald',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.75);">
                 <span style="color:var(--green);">✓</span> Confirmation email with your order details
@@ -1155,10 +1165,10 @@
           <div style="display:flex;gap:0.75rem;">
             <button class="book-back" onclick="goStep(4)">← Back</button>
             <button class="book-next" id="payBtn" style="flex:1;font-size:1.1rem;padding:1.1rem;" onclick="submitBooking()">
-              Pay Now — <span id="payAmount"></span>
+              Reserve My Spot
             </button>
           </div>
-          <p style="text-align:center;font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:1px;color:rgba(255,255,255,0.2);margin-top:1rem;">🔒 Secure payment · Just show up and play</p>
+          <p style="text-align:center;font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:1px;color:rgba(255,255,255,0.2);margin-top:1rem;">No payment now · Pay <span id="payAmount"></span> at check-in</p>
         </div>
       </div>
 
@@ -1166,8 +1176,8 @@
       <div class="book-step hidden" id="stepDone">
         <div style="padding:4rem 2rem;text-align:center;">
           <div style="font-size:4rem;margin-bottom:1.5rem;">🎉</div>
-          <h3 style="font-family:'Bebas Neue',cursive;font-size:3rem;letter-spacing:2px;color:var(--green);animation:neon-pulse-green 2s ease-in-out infinite;margin-bottom:0.5rem;">You're Booked!</h3>
-          <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.7;margin-bottom:2rem;">Check your phone and email for confirmation.<br/>We'll send a reminder the day before your visit.<br/>Just show up and have a grand time.</p>
+          <h3 style="font-family:'Bebas Neue',cursive;font-size:3rem;letter-spacing:2px;color:var(--green);animation:neon-pulse-green 2s ease-in-out infinite;margin-bottom:0.5rem;">You're Reserved!</h3>
+          <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.7;margin-bottom:2rem;">Check your phone and email for confirmation.<br/>We'll send a reminder the day before your visit.<br/>Just show up at your reserved time, pay at check-in, and have a grand time.</p>
           <div style="font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);">Ballparks of America · Branson, MO</div>
         </div>
       </div>
@@ -1187,13 +1197,13 @@
         <div class="loc-d">
           <strong>Address:</strong> Ballparks of America, Branson, MO<br />
           <strong>Phone:</strong> <a href="tel:+14178001234" style="color: var(--green); text-decoration: none;">Call for Hours & Info</a><br />
-          <strong>Hours:</strong> Seasonal — check current schedule<br />
+          <strong>Hours:</strong> Jul–Aug 16: Mon–Sun 12pm–10pm (closed Thu) · Aug 17–Sep 10: Closed · Sep 11+: Fri–Sat 6pm–Midnight · Oct: Thu–Sun 6pm–11pm<br />
           <strong>Parking:</strong> Free on-site parking available
         </div>
         <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.6rem;">
           <a href="https://maps.google.com/?q=Ballparks+of+America+Branson+MO" target="_blank" rel="noopener" class="btn-g">📍 Get Directions</a>
           <a href="tel:+14178001234" style="background:none;border:2px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;padding:0.7rem 1.2rem;border-radius:4px;text-decoration:none;text-align:center;">📞 Call Us</a>
-          <a href="#book" style="background:none;border:2px solid rgba(57,255,20,0.3);color:var(--green);font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;padding:0.7rem 1.2rem;border-radius:4px;text-decoration:none;text-align:center;">🎟️ Book Now — $35</a>
+          <a href="#book" style="background:none;border:2px solid rgba(57,255,20,0.3);color:var(--green);font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;padding:0.7rem 1.2rem;border-radius:4px;text-decoration:none;text-align:center;">🎟️ Reserve Your Spot</a>
         </div>
         <div style="margin-top:1.5rem;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
           <img src="glow-sign.jpg" alt="Grand Slam Glow Mini Golf illuminated sign Branson MO" style="width:100%;display:block;object-fit:cover;max-height:160px;" loading="lazy" />
@@ -1448,13 +1458,79 @@
   document.getElementById('mainNav').classList.add('scrolled');
 
   // ── BOOKING WIDGET ──────────────────────────────────────────────────────
-  var booking = { pkgName:'', priceEach:0, qty:1, date:'', name:'', phone:'', email:'' };
+  var booking = { pkgName:'', priceEach:0, qty:1, date:'', time:'', name:'', phone:'', email:'' };
 
-  // Set min date to today
+  // Seasonal hours. Add/adjust periods here as the schedule changes.
+  var HOURS_PERIODS = [
+    { start:'2026-07-01', end:'2026-08-16', days:[0,1,2,3,5,6], open:'12:00', close:'22:00' }, // Jul-Aug 16: everyday, closed Thu, 12pm-10pm
+    { start:'2026-08-17', end:'2026-09-10', days:[],            open:null,    close:null    }, // closed entirely
+    { start:'2026-09-11', end:'2026-09-30', days:[5,6],         open:'18:00', close:'24:00' }, // Fri/Sat only, 6pm-midnight
+    { start:'2026-10-01', end:'2026-10-31', days:[0,4,5,6],     open:'18:00', close:'23:00' }  // Thu-Sun, 6pm-11pm
+  ];
+
+  function getDayHours(dateStr){
+    if(!dateStr) return null;
+    var period = HOURS_PERIODS.filter(function(p){ return dateStr >= p.start && dateStr <= p.end; })[0];
+    if(!period) return null; // outside published schedule
+    var day = new Date(dateStr+'T12:00:00').getDay();
+    if(period.days.indexOf(day) === -1) return { closed:true };
+    return { closed:false, open:period.open, close:period.close };
+  }
+
+  function timeSlots(open, close){
+    function toMin(t){ var p=t.split(':').map(Number); return p[0]*60+p[1]; }
+    var start = toMin(open), end = toMin(close);
+    var slots = [];
+    for(var m=start; m<end; m+=30) slots.push(m);
+    return slots.map(function(m){
+      var h = Math.floor(m/60)%24, mm = m%60;
+      var ampm = h>=12 ? 'PM':'AM';
+      var h12 = h%12; if(h12===0) h12=12;
+      var value = (h<10?'0'+h:h)+':'+(mm<10?'0'+mm:mm);
+      var label = h12+':'+(mm<10?'0'+mm:mm)+' '+ampm;
+      return { value:value, label:label };
+    });
+  }
+
+  function onDateChange(){
+    var dateEl = document.getElementById('visitDate');
+    var dateStr = dateEl ? dateEl.value : '';
+    var msgEl = document.getElementById('dateClosedMsg');
+    var timeWrap = document.getElementById('timeWrap');
+    var timeSel = document.getElementById('visitTime');
+    booking.date = dateStr;
+    booking.time = '';
+
+    var hours = getDayHours(dateStr);
+    if(!dateStr || !hours || hours.closed){
+      if(msgEl){
+        msgEl.hidden = !dateStr;
+        msgEl.textContent = !hours
+          ? "We don't have hours published that far out yet — please call us to check availability for this date."
+          : "We're closed that day. Please pick another date.";
+      }
+      if(timeWrap) timeWrap.hidden = true;
+      if(timeSel){ timeSel.innerHTML = ''; }
+    } else {
+      if(msgEl) msgEl.hidden = true;
+      if(timeWrap) timeWrap.hidden = false;
+      if(timeSel){
+        var slots = timeSlots(hours.open, hours.close);
+        timeSel.innerHTML = '<option value="">Select a time</option>' +
+          slots.map(function(s){ return '<option value="'+s.value+'">'+s.label+'</option>'; }).join('');
+      }
+    }
+    checkStep3();
+  }
+
+  // Set bookable date range: today through the end of the published schedule
   (function(){
     var d = new Date();
     var el = document.getElementById('visitDate');
-    if(el) el.min = d.toISOString().split('T')[0];
+    if(el){
+      el.min = d.toISOString().split('T')[0];
+      el.max = HOURS_PERIODS[HOURS_PERIODS.length-1].end;
+    }
   })();
 
   function selectPkg(el, name, price) {
@@ -1481,7 +1557,18 @@
     var rc = document.getElementById('rev-contact');
     if(rc && (booking.phone||booking.email)) rc.textContent = (booking.phone?'📱 '+booking.phone:'')+(booking.phone&&booking.email?' · ':'')+(booking.email?'✉ '+booking.email:'');
     var rdate = document.getElementById('rev-date');
-    if(rdate && booking.date){ var dt=new Date(booking.date+'T12:00:00'); rdate.textContent='📅 '+dt.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'}); }
+    if(rdate && booking.date){
+      var dt=new Date(booking.date+'T12:00:00');
+      var dateLabel = dt.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+      var timeLabel = '';
+      if(booking.time){
+        var tp = booking.time.split(':').map(Number);
+        var ampm = tp[0]>=12 ? 'PM':'AM';
+        var h12 = tp[0]%12; if(h12===0) h12=12;
+        timeLabel = ' at '+h12+':'+(tp[1]<10?'0'+tp[1]:tp[1])+' '+ampm;
+      }
+      rdate.textContent='📅 '+dateLabel+timeLabel;
+    }
   }
 
   function changeQty(delta){
@@ -1492,10 +1579,14 @@
   }
 
   function checkStep3(){
-    var el = document.getElementById('visitDate');
-    booking.date = el ? el.value : '';
+    var dateEl = document.getElementById('visitDate');
+    var timeEl = document.getElementById('visitTime');
+    booking.date = dateEl ? dateEl.value : '';
+    booking.time = timeEl ? timeEl.value : '';
+    var hours = getDayHours(booking.date);
+    var valid = !!(booking.date && booking.time && hours && !hours.closed);
     var n3 = document.getElementById('next3');
-    if(n3) n3.disabled = !booking.date;
+    if(n3) n3.disabled = !valid;
     updateSummary();
   }
 
@@ -1528,15 +1619,15 @@
 
   function submitBooking(){
     var btn = document.getElementById('payBtn');
-    if(btn){ btn.textContent = 'Processing...'; btn.disabled = true; }
+    if(btn){ btn.textContent = 'Reserving...'; btn.disabled = true; }
 
     var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/czc6cwHlB7GFCZBPIP8i/webhook-trigger/c3e2bc8a-85cc-4eee-bf88-dd6d09a7a570';
     var total = booking.priceEach * booking.qty;
     var payload = {
       package: booking.pkgName, priceEach: booking.priceEach,
-      qty: booking.qty, total: total, visitDate: booking.date,
+      qty: booking.qty, total: total, visitDate: booking.date, visitTime: booking.time,
       name: booking.name, phone: booking.phone, email: booking.email,
-      source: 'Grand Slam Website'
+      paymentStatus: 'not_paid', source: 'Grand Slam Website'
     };
 
     fetch(GHL_WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) }).catch(function(){});
