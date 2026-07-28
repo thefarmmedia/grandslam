@@ -279,6 +279,27 @@
     .faq-a{display:none;padding:0 1.5rem 1.2rem;color:var(--gray);font-size:0.88rem;line-height:1.7}
     .faq-item.open .faq-a{display:block}
 
+    /* ── BOOKING CALENDAR ── */
+    .cal-widget{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1rem}
+    .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem}
+    .cal-month-label{font-family:'Oswald',sans-serif;font-size:0.9rem;letter-spacing:1px;color:#fff;text-transform:uppercase}
+    .cal-nav{background:none;border:1px solid rgba(255,255,255,0.15);color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:1.1rem;line-height:1;transition:all 0.2s}
+    .cal-nav:hover:not(:disabled){border-color:var(--green);color:var(--green)}
+    .cal-nav:disabled{opacity:0.2;cursor:not-allowed}
+    .cal-dow{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-family:'Oswald',sans-serif;font-size:0.65rem;letter-spacing:1px;color:var(--gray);margin-bottom:0.35rem}
+    .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+    .cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:6px;font-family:'Oswald',sans-serif;font-size:0.82rem;border:1px solid transparent;background:none;color:#fff;padding:0;transition:all 0.15s}
+    .cal-day-empty{visibility:hidden;cursor:default}
+    .cal-day-open{background:rgba(57,255,20,0.08);border-color:rgba(57,255,20,0.2);cursor:pointer}
+    .cal-day-open:hover{background:rgba(57,255,20,0.2);border-color:var(--green)}
+    .cal-day-closed{color:rgba(255,255,255,0.22);cursor:not-allowed}
+    .cal-day-selected{background:var(--green)!important;border-color:var(--green)!important;color:#000!important;font-weight:700}
+    .cal-day-today:not(.cal-day-selected){box-shadow:inset 0 0 0 1px rgba(255,255,255,0.4)}
+    .cal-legend{display:flex;gap:1.25rem;margin-top:0.85rem;font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:1px;color:var(--gray);align-items:center}
+    .cal-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:0.4rem;vertical-align:middle}
+    .cal-dot-open{background:var(--green)}
+    .cal-dot-closed{background:rgba(255,255,255,0.22)}
+
     /* ── REVIEWS ── */
     .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2rem}
     .review-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:1.5rem}
@@ -1075,12 +1096,23 @@
           <span class="step-title">When Are You Coming?</span>
         </div>
         <div style="padding:2rem;">
-          <p style="color:var(--gray);font-size:0.88rem;margin-bottom:1.5rem;line-height:1.6;">Pick a date and time to reserve your spot — no payment now, just show up and pay at check-in. Hours change seasonally, so pick a date first and we'll show you what times are open.</p>
-          <div style="position:relative;margin-bottom:1.25rem;">
+          <p style="color:var(--gray);font-size:0.88rem;margin-bottom:1.5rem;line-height:1.6;">Pick a date and time to reserve your spot — no payment now, just show up and pay at check-in. Grayed-out days are closed.</p>
+          <div style="margin-bottom:1.25rem;">
             <label style="font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:0.5rem;">Visit Date</label>
-            <input type="date" id="visitDate" min="" max="" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:1rem 1.25rem;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:1px;outline:none;transition:border-color 0.2s;cursor:pointer;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'" onchange="onDateChange()" />
+            <div class="cal-widget" id="calWidget">
+              <div class="cal-head">
+                <button type="button" class="cal-nav" id="calPrev" aria-label="Previous month" onclick="calChangeMonth(-1)">‹</button>
+                <div class="cal-month-label" id="calMonthLabel"></div>
+                <button type="button" class="cal-nav" id="calNext" aria-label="Next month" onclick="calChangeMonth(1)">›</button>
+              </div>
+              <div class="cal-dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+              <div class="cal-grid" id="calGrid"></div>
+              <div class="cal-legend">
+                <span><i class="cal-dot cal-dot-open"></i>Open</span>
+                <span><i class="cal-dot cal-dot-closed"></i>Closed</span>
+              </div>
+            </div>
           </div>
-          <div id="dateClosedMsg" hidden style="background:rgba(255,32,32,0.08);border:1px solid rgba(255,32,32,0.25);border-radius:6px;padding:0.85rem 1.1rem;margin-bottom:1.25rem;color:#ff8080;font-family:'Oswald',sans-serif;font-size:0.82rem;line-height:1.5;"></div>
           <div id="timeWrap" hidden style="margin-bottom:2rem;">
             <label style="font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:0.5rem;">Arrival Time</label>
             <select id="visitTime" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:1rem 1.25rem;color:#fff;font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:1px;outline:none;transition:border-color 0.2s;cursor:pointer;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'" onchange="checkStep3()"></select>
@@ -1492,46 +1524,95 @@
     });
   }
 
-  function onDateChange(){
-    var dateEl = document.getElementById('visitDate');
-    var dateStr = dateEl ? dateEl.value : '';
-    var msgEl = document.getElementById('dateClosedMsg');
-    var timeWrap = document.getElementById('timeWrap');
-    var timeSel = document.getElementById('visitTime');
-    booking.date = dateStr;
-    booking.time = '';
+  // ── Visual booking calendar ──
+  var CAL_MIN, CAL_MAX;
+  var calView = { year: 0, month: 0 };
+  var CAL_MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-    var hours = getDayHours(dateStr);
-    if(!dateStr || !hours || hours.closed){
-      if(msgEl){
-        msgEl.hidden = !dateStr;
-        msgEl.textContent = !hours
-          ? "We don't have hours published that far out yet — please call us to check availability for this date."
-          : "We're closed that day. Please pick another date.";
-      }
-      if(timeWrap) timeWrap.hidden = true;
-      if(timeSel){ timeSel.innerHTML = ''; }
-    } else {
-      if(msgEl) msgEl.hidden = true;
-      if(timeWrap) timeWrap.hidden = false;
-      if(timeSel){
-        var slots = timeSlots(hours.open, hours.close);
-        timeSel.innerHTML = '<option value="">Select a time</option>' +
-          slots.map(function(s){ return '<option value="'+s.value+'">'+s.label+'</option>'; }).join('');
-      }
-    }
-    checkStep3();
+  function pad2(n){ return n < 10 ? '0'+n : ''+n; }
+  function ymd(y, m, d){ return y+'-'+pad2(m+1)+'-'+pad2(d); }
+
+  function initCalendar(){
+    var today = new Date();
+    CAL_MIN = today.toISOString().split('T')[0];
+    CAL_MAX = HOURS_PERIODS[HOURS_PERIODS.length-1].end;
+    calView.year = today.getFullYear();
+    calView.month = today.getMonth();
+    renderCalendar();
   }
 
-  // Set bookable date range: today through the end of the published schedule
-  (function(){
-    var d = new Date();
-    var el = document.getElementById('visitDate');
-    if(el){
-      el.min = d.toISOString().split('T')[0];
-      el.max = HOURS_PERIODS[HOURS_PERIODS.length-1].end;
+  function calChangeMonth(delta){
+    var d = new Date(calView.year, calView.month + delta, 1);
+    var newYm = d.getFullYear()+'-'+pad2(d.getMonth()+1);
+    if(newYm < CAL_MIN.slice(0,7) || newYm > CAL_MAX.slice(0,7)) return;
+    calView.year = d.getFullYear();
+    calView.month = d.getMonth();
+    renderCalendar();
+  }
+
+  function renderCalendar(){
+    var grid = document.getElementById('calGrid');
+    var label = document.getElementById('calMonthLabel');
+    if(!grid || !label) return;
+
+    label.textContent = CAL_MONTH_NAMES[calView.month] + ' ' + calView.year;
+
+    var firstDow = new Date(calView.year, calView.month, 1).getDay();
+    var daysInMonth = new Date(calView.year, calView.month + 1, 0).getDate();
+    var todayStr = new Date().toISOString().split('T')[0];
+
+    var html = '';
+    for(var i = 0; i < firstDow; i++) html += '<div class="cal-day cal-day-empty"></div>';
+
+    for(var day = 1; day <= daysInMonth; day++){
+      var dateStr = ymd(calView.year, calView.month, day);
+      var inRange = dateStr >= CAL_MIN && dateStr <= CAL_MAX;
+      var hours = inRange ? getDayHours(dateStr) : null;
+      var isOpen = inRange && hours && !hours.closed;
+      var cls = ['cal-day'];
+      if(dateStr === todayStr) cls.push('cal-day-today');
+      if(dateStr === booking.date) cls.push('cal-day-selected');
+      if(isOpen){
+        cls.push('cal-day-open');
+        html += '<button type="button" class="'+cls.join(' ')+'" onclick="selectCalDate(\''+dateStr+'\')" aria-label="'+dateStr+', open">'+day+'</button>';
+      } else {
+        cls.push('cal-day-closed');
+        html += '<button type="button" class="'+cls.join(' ')+'" disabled aria-label="'+dateStr+', closed">'+day+'</button>';
+      }
     }
-  })();
+    grid.innerHTML = html;
+
+    var curYm = calView.year+'-'+pad2(calView.month+1);
+    var prevBtn = document.getElementById('calPrev');
+    var nextBtn = document.getElementById('calNext');
+    if(prevBtn) prevBtn.disabled = curYm <= CAL_MIN.slice(0,7);
+    if(nextBtn) nextBtn.disabled = curYm >= CAL_MAX.slice(0,7);
+  }
+
+  function populateTimesForDate(dateStr){
+    var timeWrap = document.getElementById('timeWrap');
+    var timeSel = document.getElementById('visitTime');
+    var hours = getDayHours(dateStr);
+    if(!hours || hours.closed){
+      if(timeWrap) timeWrap.hidden = true;
+      if(timeSel) timeSel.innerHTML = '';
+      return;
+    }
+    if(timeWrap) timeWrap.hidden = false;
+    if(timeSel){
+      var slots = timeSlots(hours.open, hours.close);
+      timeSel.innerHTML = '<option value="">Select a time</option>' +
+        slots.map(function(s){ return '<option value="'+s.value+'">'+s.label+'</option>'; }).join('');
+    }
+  }
+
+  function selectCalDate(dateStr){
+    booking.date = dateStr;
+    booking.time = '';
+    renderCalendar();
+    populateTimesForDate(dateStr);
+    checkStep3();
+  }
 
   function selectPkg(el, name, price) {
     // Walk up to the actual .pkg-card even if a child element was clicked
@@ -1579,9 +1660,7 @@
   }
 
   function checkStep3(){
-    var dateEl = document.getElementById('visitDate');
     var timeEl = document.getElementById('visitTime');
-    booking.date = dateEl ? dateEl.value : '';
     booking.time = timeEl ? timeEl.value : '';
     var hours = getDayHours(booking.date);
     var valid = !!(booking.date && booking.time && hours && !hours.closed);
@@ -1640,6 +1719,8 @@
       if(book) book.scrollIntoView({behavior:'smooth',block:'start'});
     }, 800);
   }
+
+  initCalendar();
   // ── END BOOKING WIDGET ───────────────────────────────────────────────────
 
 
