@@ -1,0 +1,29 @@
+# Grand Slam Entertainment
+
+> Grand Slam Entertainment is an indoor family entertainment complex at Ballparks of America in Branson, Missouri, featuring three attractions: Grand Slam Glow Mini Golf (blacklight mini golf), Operation Outbreak Zombie Laser Tag, and The Skeleton Key Escape Rooms. Attractions can be booked individually or bundled into Double Play and Triple Play combo packages.
+
+This file follows the llms.txt convention (https://llmstxt.org/) to help AI assistants and LLM-based search tools accurately summarize and cite this site. The site itself is a single scrolling page (index.html) with in-page anchor sections; the links below point to those sections.
+
+## Attractions
+
+- [Grand Slam Glow Mini Golf](/#attractions): 18-hole blacklight mini golf course with neon murals and UV-lit obstacles. $10 per person. Included in the Double Play and Triple Play packages.
+- [Operation Outbreak Zombie Laser Tag](/#attractions): Zombie-apocalypse-themed laser tag arena with state-of-the-art gear. $10 per person. Included in the Double Play and Triple Play packages.
+- [The Skeleton Key Escape Rooms](/#attractions): Immersive 60-minute themed escape room experience. $25 per person. Included in the Triple Play package.
+
+## Pricing
+
+- [Pricing](/#pricing): Glow Golf $10/person, Laser Tag $10/person, Escape Rooms $25/person.
+- Double Play combo: Glow Golf + Laser Tag, $18/person.
+- Triple Play bundle: all three attractions, $35/person (best value).
+- Group rates are available for parties of 10 or more — contact the venue directly.
+
+## Booking & Visit Info
+
+- [Book Online](/#book): Online booking flow for all individual attractions and combo packages.
+- [Location](/#location): Ballparks of America, Branson, Missouri. Free on-site parking. Fully indoor and climate-controlled (rain-proof).
+- [FAQ](/#faq): Answers on pricing, hours, group/private events, accessibility, dress code, and typical visit duration (2–3 hours for all three attractions).
+- [Groups & Events](/#groups): Birthday parties, corporate team-building events, school/youth groups, and date nights.
+
+## Other
+
+- [Gallery](/#gallery): Photos and video of the Glow Golf course and other attractions.
