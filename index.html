@@ -3,19 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grand Slam Entertainment | Glow Golf, Laser Tag & Escape Rooms in Branson, MO</title>
-  <meta name="description" content="Grand Slam Entertainment at Ballparks of America in Branson, MO. Grand Slam Glow Mini Golf, Operation Outbreak Zombie Laser Tag, and The Skeleton Key Escape Rooms. $10 each, $18 Double Play (Glow Golf + Laser Tag), or $35 Triple Play for all three. Fun for all ages." />
+  <script src="site-data.js"></script>
+  <title>Grand Slam Entertainment | Indoor Family Fun in Branson, MO</title>
+  <meta name="description" content="Indoor family fun at Ballparks of America in Branson, MO — Glow Golf, Zombie Laser Tag & Escape Rooms. $10/attraction or $35 for all three." />
   <meta name="keywords" content="Grand Slam Entertainment Branson, glow golf Branson MO, laser tag Branson Missouri, escape rooms Branson, Ballparks of America entertainment, things to do in Branson, indoor entertainment Branson, blacklight mini golf Branson, zombie laser tag Branson, family fun Branson MO" />
-  <meta property="og:title" content="Grand Slam Entertainment | Branson, MO" />
-  <meta property="og:description" content="Glow Golf + Zombie Laser Tag + Escape Rooms. $10 each, $18 Double Play, or $35 Triple Play at Ballparks of America, Branson, MO." />
+  <meta property="og:title" content="Grand Slam Entertainment | Indoor Family Fun in Branson, MO" />
+  <meta property="og:description" content="Indoor family fun at Ballparks of America in Branson, MO — Glow Golf, Zombie Laser Tag & Escape Rooms. $10/attraction or $35 for all three." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://play-grandslam.com/" />
   <meta property="og:image" content="https://play-grandslam.com/banner-wide-2.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Grand Slam Entertainment | Branson, MO" />
-  <meta name="twitter:description" content="Glow Golf + Zombie Laser Tag + Escape Rooms. $10 each, $18 Double Play, or $35 Triple Play at Ballparks of America, Branson, MO." />
+  <meta name="twitter:title" content="Grand Slam Entertainment | Indoor Family Fun in Branson, MO" />
+  <meta name="twitter:description" content="Indoor family fun at Ballparks of America in Branson, MO — Glow Golf, Zombie Laser Tag & Escape Rooms. $10/attraction or $35 for all three." />
   <meta name="twitter:image" content="https://play-grandslam.com/banner-wide-2.jpg" />
   <link rel="canonical" href="https://play-grandslam.com/" />
+  <link rel="icon" href="logo-new.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Grand Slam Entertainment",
+    "url": "https://play-grandslam.com/",
+    "logo": "https://play-grandslam.com/logo-new.png",
+    "image": "https://play-grandslam.com/banner-wide-2.jpg",
+    "telephone": "+1-417-343-6540",
+    "address": { "@type": "PostalAddress", "streetAddress": "1000 Pat Nash Dr", "addressLocality": "Branson", "addressRegion": "MO", "postalCode": "65616", "addressCountry": "US" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Grand Slam Entertainment",
+    "url": "https://play-grandslam.com/"
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -104,6 +126,13 @@
     .nav-cta{background:var(--green)!important;color:#000!important;padding:0.5rem 1.3rem!important;border-radius:3px;font-weight:700!important;-webkit-text-fill-color:#000!important;letter-spacing:1.5px!important;transition:box-shadow 0.2s,transform 0.2s!important}
     .nav-cta:hover{box-shadow:0 0 24px rgba(57,255,20,0.6)!important;transform:translateY(-1px)!important;color:#000!important}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .nav-drop{position:relative}
+    .nav-drop>a{display:flex;align-items:center;gap:0.3rem;cursor:pointer}
+    .nav-drop-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(6,6,14,0.98);backdrop-filter:blur(20px);border:1px solid rgba(57,255,20,0.15);border-radius:6px;padding:0.6rem;min-width:210px;box-shadow:0 20px 40px rgba(0,0,0,0.5)}
+    .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{display:block}
+    .nav-drop-menu a{display:block;padding:0.6rem 0.9rem;border-radius:4px;white-space:nowrap;font-size:0.75rem}
+    .nav-drop-menu a:hover{background:rgba(57,255,20,0.08)}
+    .mobile-menu .mm-sub{padding-left:1rem;font-size:0.9rem;color:rgba(255,255,255,0.45)}
 
     /* ── BREADCRUMBS ── */
     .breadcrumb-bar{position:sticky;top:68px;z-index:900;background:rgba(2,2,4,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(57,255,20,0.08);padding:0.55rem 2.5rem}
@@ -148,11 +177,15 @@
 
     .hero-divider{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);margin:1.5rem auto;animation:fadeUp 0.7s ease 0.3s both}
 
-    .hero-tagline{font-family:'Oswald',sans-serif;font-size:clamp(0.85rem,1.8vw,1.15rem);letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:1.5rem;animation:fadeUp 0.7s ease 0.35s both}
+    .hero-tagline{font-family:'Oswald',sans-serif;font-weight:500;font-size:clamp(0.95rem,2vw,1.25rem);letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:0.5rem;animation:fadeUp 0.7s ease 0.35s both}
+    .hero-subtagline{font-family:'Oswald',sans-serif;font-size:clamp(0.75rem,1.5vw,0.9rem);letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;animation:fadeUp 0.7s ease 0.4s both}
+    .hero-subtagline span{color:var(--green)}
+    .hero-status-detail{font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:1px;color:rgba(255,255,255,0.5);margin:-1rem 0 1.5rem;min-height:1em}
     .hero-tagline span{color:var(--green);font-weight:600}
 
     .hero-pills{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;animation:fadeUp 0.7s ease 0.4s both}
-    .pill{font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:1.5px;padding:0.45rem 1rem;border-radius:3px;border:1px solid;text-transform:uppercase}
+    .pill{font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:1.5px;padding:0.45rem 1rem;border-radius:3px;border:1px solid;text-transform:uppercase;text-decoration:none;display:inline-block;transition:transform 0.2s,box-shadow 0.2s}
+    .pill:hover{transform:translateY(-1px)}
     .pill-g{border-color:rgba(57,255,20,0.5);color:var(--green);background:rgba(57,255,20,0.07)}
     .pill-o{border-color:rgba(255,140,0,0.5);color:var(--orange);background:rgba(255,140,0,0.07)}
     .pill-b{border-color:rgba(0,191,255,0.5);color:var(--blue);background:rgba(0,191,255,0.07)}
@@ -218,6 +251,13 @@
 
     /* ── LAYOUT ── */
     .wrap{max-width:1200px;margin:0 auto;padding:5rem 2rem;position:relative;z-index:1}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:1.5rem}
+    .info-card{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:1.5rem;text-decoration:none;color:inherit;transition:border-color 0.2s,transform 0.2s;display:block}
+    .info-card:hover{border-color:rgba(57,255,20,0.35);transform:translateY(-2px)}
+    .info-card .ic-icon{font-size:1.6rem;margin-bottom:0.6rem}
+    .info-card h3{font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:0.5px;color:#fff;margin-bottom:0.35rem}
+    .info-card p{color:var(--gray);font-size:0.85rem;line-height:1.55;margin-bottom:0}
+    .info-card .ic-link{display:inline-block;margin-top:0.75rem;color:var(--green);font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:1.3px;text-transform:uppercase}
     .sec-label{font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:5px;text-transform:uppercase;color:var(--green);margin-bottom:0.6rem}
     .sec-title{font-family:'Bebas Neue',cursive;font-size:clamp(2.2rem,5.5vw,4.5rem);letter-spacing:2px;line-height:1;margin-bottom:0.85rem}
     .sec-body{color:var(--gray);font-size:0.95rem;line-height:1.75;max-width:560px}
@@ -243,6 +283,9 @@
     .attr-sub{font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:1.5rem}
     .attr-desc{color:rgba(200,200,200,0.8);line-height:1.75;font-size:0.95rem;margin-bottom:2rem}
     .attr-features{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem}
+    .attr-cta-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+    .attr-more-link{font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s}
+    .attr-more-link:hover{color:var(--green)}
     .feat{display:flex;align-items:center;gap:0.75rem;font-family:'Oswald',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.8)}
     .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
     .dot-g{background:var(--green);box-shadow:0 0 8px var(--green)}
@@ -363,7 +406,8 @@
 
     /* ── FOOTER ── */
     footer{background:#000;border-top:1px solid rgba(255,255,255,0.06);padding:3rem 2rem 2rem}
-    .ft-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .ft-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.05)}
+    @media(max-width:1100px){.ft-inner{grid-template-columns:1fr 1fr}}
     .ft-logo{font-family:'Bebas Neue',cursive;font-size:1.8rem;letter-spacing:2px;margin-bottom:0.6rem;background:linear-gradient(90deg,#fff,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .ft-desc{color:var(--gray);font-size:0.83rem;line-height:1.7;max-width:280px}
     .ft-col h4{font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:0.85rem}
@@ -457,15 +501,22 @@
 <!-- NAV -->
 <nav id="mainNav">
   <a class="nav-logo" href="#home">
-    <img src="logo-new.png" alt="Grand Slam Entertainment Logo" />
+    <img src="logo-new.png" alt="Grand Slam Entertainment Logo" width="66" height="50" />
     <span class="nav-logo-text">Grand Slam Entertainment</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#attractions">Attractions</a></li>
-    <li><a href="#pricing">Pricing</a></li>
+    <li class="nav-drop">
+      <a href="#attractions">Attractions ▾</a>
+      <div class="nav-drop-menu">
+        <a href="glow-golf-branson/">Glow Golf</a>
+        <a href="laser-tag-branson/">Zombie Laser Tag</a>
+        <a href="escape-rooms-branson/">Escape Rooms</a>
+      </div>
+    </li>
     <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#groups">Groups</a></li>
-    <li><a href="#faq">FAQ</a></li>
+    <li><a href="group-events-branson/">Groups &amp; Parties</a></li>
+    <li><a href="pricing/">Pricing</a></li>
+    <li><a href="faq/">FAQ</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#book" class="nav-cta">Book Now</a></li>
   </ul>
@@ -475,10 +526,13 @@
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#attractions" onclick="toggleMenu()">Attractions</a>
-  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="glow-golf-branson/" class="mm-sub" onclick="toggleMenu()">Glow Golf</a>
+  <a href="laser-tag-branson/" class="mm-sub" onclick="toggleMenu()">Zombie Laser Tag</a>
+  <a href="escape-rooms-branson/" class="mm-sub" onclick="toggleMenu()">Escape Rooms</a>
   <a href="#gallery" onclick="toggleMenu()">Gallery</a>
-  <a href="#groups" onclick="toggleMenu()">Groups & Events</a>
-  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="group-events-branson/" onclick="toggleMenu()">Groups &amp; Parties</a>
+  <a href="pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="faq/" onclick="toggleMenu()">FAQ</a>
   <a href="#reviews" onclick="toggleMenu()">Reviews</a>
   <a href="#book" onclick="toggleMenu()" class="mm-cta">Book Now</a>
 </div>
@@ -505,29 +559,31 @@
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
 
   <div class="hero-inner">
-    <!-- Open sign -->
-    <div class="neon-open" style="animation:neon-pulse-green 1.8s ease-in-out infinite;">★ &nbsp;OPEN NOW&nbsp; ★</div>
+    <!-- Status badge — text is set by JS from site-data.js (site-status.js at page bottom), never hardcoded, so it can't contradict the seasonal schedule -->
+    <div class="neon-open" id="heroStatusBadge" style="animation:neon-pulse-green 1.8s ease-in-out infinite;">★ &nbsp;Reservations Open&nbsp; ★</div>
+    <p class="hero-status-detail" id="heroStatusDetail"></p>
 
     <!-- Logo centered -->
     <div class="hero-logo-wrap">
-      <img src="logo-new.png" alt="Grand Slam Entertainment Branson MO" class="hero-logo-img" />
+      <img src="logo-new.png" alt="Grand Slam Entertainment Branson MO" class="hero-logo-img" width="140" height="140" />
     </div>
 
-    <!-- Giant neon title -->
-    <h1 class="hero-title">
+    <!-- Brand wordmark (visual identity — not a heading, see H1 below) -->
+    <div class="hero-title">
       <span class="t-white">Grand</span>
       <span class="t-red">Slam</span>
       <span class="t-blue">Entertainment</span>
-    </h1>
+    </div>
 
     <div class="hero-divider"></div>
 
-    <p class="hero-tagline">Three Epic Experiences. &nbsp;<span>One Grand Time.</span></p>
+    <h1 class="hero-tagline">Indoor Family Fun in Branson, MO</h1>
+    <p class="hero-subtagline">Glow Golf <span>·</span> Zombie Laser Tag <span>·</span> Escape Rooms</p>
 
     <div class="hero-pills">
-      <div class="pill pill-g">⛳ Glow Golf</div>
-      <div class="pill pill-o">🔫 Zombie Laser Tag</div>
-      <div class="pill pill-b">🔐 Escape Rooms</div>
+      <a href="glow-golf-branson/" class="pill pill-g">⛳ Glow Golf</a>
+      <a href="laser-tag-branson/" class="pill pill-o">🔫 Zombie Laser Tag</a>
+      <a href="escape-rooms-branson/" class="pill pill-b">🔐 Escape Rooms</a>
     </div>
 
     <div class="hero-btns">
@@ -662,7 +718,10 @@
         <div class="feat"><div class="dot dot-g"></div>Perfect for all ages & skill levels</div>
         <div class="feat"><div class="dot dot-g"></div>Included in Double Play &amp; Triple Play</div>
       </div>
-      <a href="#book" class="btn-g">Book Glow Golf</a>
+      <div class="attr-cta-row">
+        <a href="#book" class="btn-g">Book Glow Golf</a>
+        <a href="glow-golf-branson/" class="attr-more-link">Glow Golf in Branson →</a>
+      </div>
     </div>
   </article>
 <!-- TUBE DIVIDER -->
@@ -694,7 +753,10 @@
         <div class="feat"><div class="dot dot-o"></div>Fun for all ages — kids to adults</div>
         <div class="feat"><div class="dot dot-o"></div>Included in Double Play &amp; Triple Play</div>
       </div>
-      <a href="#book" class="btn-o">Join the Battle</a>
+      <div class="attr-cta-row">
+        <a href="#book" class="btn-o">Join the Battle</a>
+        <a href="laser-tag-branson/" class="attr-more-link">Zombie Laser Tag →</a>
+      </div>
     </div>
   </article>
 <!-- OPERATION OUTBREAK PROMO -->
@@ -727,11 +789,31 @@
         <div class="feat"><div class="dot dot-b"></div>Ideal for date nights & team bonding</div>
         <div class="feat"><div class="dot dot-b"></div>Included in the Triple Play bundle</div>
       </div>
-      <a href="#book" class="btn-b-out">Enter If You Dare</a>
+      <div class="attr-cta-row">
+        <a href="#book" class="btn-b-out">Enter If You Dare</a>
+        <a href="escape-rooms-branson/" class="attr-more-link">Branson Escape Rooms →</a>
+      </div>
     </div>
   </article>
 
 </section>
+
+<!-- PERFECT FOR -->
+<div style="background:var(--dark2);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);">
+  <div class="wrap">
+    <p class="sec-label">— Plan Your Visit</p>
+    <h2 class="sec-title">Perfect For</h2>
+    <p class="sec-body">Grand Slam works for a lot of different visits to Branson &mdash; here's where to start planning yours.</p>
+    <div class="card-grid perfect-for-grid">
+      <a href="things-to-do-in-branson-with-kids/" class="info-card"><div class="ic-icon">👨‍👩‍👧‍👦</div><h3>Families</h3><p>Attractions that work across a wide age range in one visit.</p><span class="ic-link">Things to Do With Kids →</span></a>
+      <a href="group-events-branson/" class="info-card"><div class="ic-icon">👥</div><h3>Groups</h3><p>Teams, schools, churches, and corporate outings.</p><span class="ic-link">Group Activities →</span></a>
+      <a href="birthday-parties-branson/" class="info-card"><div class="ic-icon">🎂</div><h3>Birthdays</h3><p>Mix and match attractions to fit the birthday group.</p><span class="ic-link">Birthday Parties →</span></a>
+      <a href="date-night-branson/" class="info-card"><div class="ic-icon">💚</div><h3>Date Nights</h3><p>An alternative to just dinner and a show.</p><span class="ic-link">Date Night Ideas →</span></a>
+      <a href="group-events-branson/" class="info-card"><div class="ic-icon">⚾</div><h3>Baseball Teams</h3><p>Inside Ballparks of America — a convenient stop between games.</p><span class="ic-link">Group Activities →</span></a>
+      <a href="rainy-day-activities-branson/" class="info-card"><div class="ic-icon">🌧️</div><h3>Rainy Days</h3><p>Fully indoor attractions that don't get rained out.</p><span class="ic-link">Rainy Day Activities →</span></a>
+    </div>
+  </div>
+</div>
 
 
 <!-- NEON HEADLINE SIGN -->
@@ -997,7 +1079,8 @@
     <h2 class="sec-title">What Guests Are Saying</h2>
     <div id="reviewsGrid" class="reviews-grid"></div>
     <div id="reviewsEmpty" class="reviews-empty">
-      <p>We're just getting started collecting reviews here — check back soon, or be the first to share your experience!</p>
+      <p>Visited Grand Slam? We'd love to hear about your experience.</p>
+      <!-- TODO: replace with the direct Google Business Profile review link (e.g. https://g.page/r/XXXX/review) once available — this is a generic search fallback -->
       <a href="https://www.google.com/search?q=Grand+Slam+Entertainment+Branson+MO" target="_blank" rel="noopener" class="btn-g">⭐ Leave Us a Review</a>
     </div>
   </div>
@@ -1008,10 +1091,10 @@
 <!-- BOOKING PHOTO STRIP -->
 <div style="background:#000;overflow:hidden;border-top:1px solid rgba(57,255,20,0.1);">
   <div style="display:grid;grid-template-columns:repeat(4,1fr);height:140px;">
-    <img src="glow-golf-full-course-action.jpg" alt="Glow golf action" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
-    <img src="laser-tag-guns-closeup.jpg" alt="Laser tag guns" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
-    <img src="escape-room-baseball.jpg" alt="Escape room" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
-    <img src="glow-golf-kid-putting.jpg" alt="Kid putting glow golf" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
+    <img src="glow-golf-full-course-action.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
+    <img src="laser-tag-guns-closeup.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
+    <img src="escape-room-baseball.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
+    <img src="glow-golf-kid-putting.jpg" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(1.3);" loading="lazy" />
   </div>
 </div>
 <section id="book" style="position:relative;z-index:1;background:linear-gradient(180deg,#020204 0%,#040810 50%,#020204 100%);border-top:1px solid rgba(57,255,20,0.15);padding:5rem 2rem;overflow:hidden;">
@@ -1325,19 +1408,30 @@
     <div class="ft-col">
       <h4>Attractions</h4>
       <ul class="ft-links">
-        <li><a href="#attractions">Grand Slam Glow Golf</a></li>
-        <li><a href="#attractions">Operation Outbreak Laser Tag</a></li>
-        <li><a href="#attractions">The Skeleton Key Escape Rooms</a></li>
-        <li><a href="#pricing">Triple Play — $35</a></li>
+        <li><a href="glow-golf-branson/">Grand Slam Glow Golf</a></li>
+        <li><a href="laser-tag-branson/">Operation Outbreak Laser Tag</a></li>
+        <li><a href="escape-rooms-branson/">The Skeleton Key Escape Rooms</a></li>
+        <li><a href="pricing/">Triple Play — $35</a></li>
       </ul>
     </div>
     <div class="ft-col">
       <h4>Visit Us</h4>
       <ul class="ft-links">
         <li><a href="#location">Ballparks of America, Branson MO</a></li>
-        <li><a href="#groups">Groups & Events</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="group-events-branson/">Groups &amp; Events</a></li>
+        <li><a href="faq/">FAQ</a></li>
         <li><a href="#book">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Plan Your Visit</h4>
+      <ul class="ft-links">
+        <li><a href="birthday-parties-branson/">Birthday Parties in Branson</a></li>
+        <li><a href="date-night-branson/">Date Night in Branson</a></li>
+        <li><a href="things-to-do-in-branson-with-kids/">Things to Do With Kids</a></li>
+        <li><a href="rainy-day-activities-branson/">Rainy Day Activities</a></li>
+        <li><a href="indoor-things-to-do-branson/">Indoor Things to Do</a></li>
+        <li><a href="explore/">Explore All Pages</a></li>
       </ul>
     </div>
   </div>
@@ -1529,37 +1623,13 @@
   // ── BOOKING WIDGET ──────────────────────────────────────────────────────
   var booking = { pkgName:'', priceEach:0, qty:1, date:'', time:'', name:'', phone:'', email:'' };
 
-  // Seasonal hours. Add/adjust periods here as the schedule changes.
-  var HOURS_PERIODS = [
-    { start:'2026-07-01', end:'2026-08-16', days:[0,1,2,3,5,6], open:'12:00', close:'22:00' }, // Jul-Aug 16: everyday, closed Thu, 12pm-10pm
-    { start:'2026-08-17', end:'2026-09-10', days:[],            open:null,    close:null    }, // closed entirely
-    { start:'2026-09-11', end:'2026-09-30', days:[5,6],         open:'18:00', close:'24:00' }, // Fri/Sat only, 6pm-midnight
-    { start:'2026-10-01', end:'2026-10-31', days:[0,4,5,6],     open:'18:00', close:'23:00' }  // Thu-Sun, 6pm-11pm
-  ];
-
-  function getDayHours(dateStr){
-    if(!dateStr) return null;
-    var period = HOURS_PERIODS.filter(function(p){ return dateStr >= p.start && dateStr <= p.end; })[0];
-    if(!period) return null; // outside published schedule
-    var day = new Date(dateStr+'T12:00:00').getDay();
-    if(period.days.indexOf(day) === -1) return { closed:true };
-    return { closed:false, open:period.open, close:period.close };
-  }
-
-  function timeSlots(open, close){
-    function toMin(t){ var p=t.split(':').map(Number); return p[0]*60+p[1]; }
-    var start = toMin(open), end = toMin(close);
-    var slots = [];
-    for(var m=start; m<end; m+=30) slots.push(m);
-    return slots.map(function(m){
-      var h = Math.floor(m/60)%24, mm = m%60;
-      var ampm = h>=12 ? 'PM':'AM';
-      var h12 = h%12; if(h12===0) h12=12;
-      var value = (h<10?'0'+h:h)+':'+(mm<10?'0'+mm:mm);
-      var label = h12+':'+(mm<10?'0'+mm:mm)+' '+ampm;
-      return { value:value, label:label };
-    });
-  }
+  // Hours come from the single shared source of truth in site-data.js
+  // (loaded in <head>) — do not redefine the schedule here. These are
+  // thin aliases so the rest of this file's existing call sites don't
+  // need to change.
+  var HOURS_PERIODS = GS_HOURS_PERIODS;
+  function getDayHours(dateStr){ return GS_getDayHours(dateStr); }
+  function timeSlots(open, close){ return GS_timeSlots(open, close); }
 
   // ── Visual booking calendar ──
   var CAL_MIN, CAL_MAX;
@@ -1569,12 +1639,37 @@
   function pad2(n){ return n < 10 ? '0'+n : ''+n; }
   function ymd(y, m, d){ return y+'-'+pad2(m+1)+'-'+pad2(d); }
 
+  function monthHasOpenDay(year, month){
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    for(var day = 1; day <= daysInMonth; day++){
+      var dateStr = ymd(year, month, day);
+      if(dateStr < CAL_MIN || dateStr > CAL_MAX) continue;
+      var hours = getDayHours(dateStr);
+      if(hours && !hours.closed) return true;
+    }
+    return false;
+  }
+
   function initCalendar(){
     var today = new Date();
     CAL_MIN = today.toISOString().split('T')[0];
     CAL_MAX = HOURS_PERIODS[HOURS_PERIODS.length-1].end;
     calView.year = today.getFullYear();
     calView.month = today.getMonth();
+    // If today falls inside a fully-closed stretch (e.g. a seasonal
+    // break) with no bookable days left this month, jump ahead to the
+    // next month that actually has an open date instead of showing a
+    // dead end with every day grayed out.
+    var maxYm = CAL_MAX.slice(0,7);
+    var guard = 0;
+    while(!monthHasOpenDay(calView.year, calView.month) && guard < 24){
+      var curYm = calView.year+'-'+pad2(calView.month+1);
+      if(curYm >= maxYm) break;
+      var next = new Date(calView.year, calView.month + 1, 1);
+      calView.year = next.getFullYear();
+      calView.month = next.getMonth();
+      guard++;
+    }
     renderCalendar();
   }
 
@@ -1759,6 +1854,22 @@
 
   initCalendar();
   // ── END BOOKING WIDGET ───────────────────────────────────────────────────
+
+  // ── Hero status badge — always derived from site-data.js, never hardcoded ──
+  (function renderHeroStatus(){
+    var detailEl = document.getElementById('heroStatusDetail');
+    if(!detailEl || typeof GS_getCurrentStatus !== 'function') return;
+    var status = GS_getCurrentStatus();
+    var msg;
+    if(status.state === 'open'){
+      msg = status.detail || 'Open now.';
+    } else if(status.state === 'unknown'){
+      msg = status.detail || '';
+    } else {
+      msg = status.label + (status.detail ? ' — ' + status.detail : '');
+    }
+    detailEl.textContent = msg;
+  })();
 
 
   // Laser tag photo slideshow

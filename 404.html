@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Grand Slam Entertainment</title>
+  <meta name="description" content="This page couldn't be found. Find Glow Golf, Zombie Laser Tag, Escape Rooms, pricing and booking for Grand Slam Entertainment in Branson, MO." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/logo-new.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/shared.css" />
+  <style>
+    .error-hero{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 3rem}
+    .error-code{font-family:'Bebas Neue',cursive;font-size:clamp(5rem,18vw,10rem);line-height:1;letter-spacing:2px;color:var(--red);text-shadow:0 0 20px rgba(255,32,32,0.5)}
+    .error-title{font-family:'Bebas Neue',cursive;font-size:clamp(1.6rem,4vw,2.5rem);letter-spacing:1px;margin:0.5rem 0 1rem}
+    .error-body{color:var(--gray);font-size:0.95rem;line-height:1.7;max-width:520px;margin-bottom:2rem}
+  </style>
+</head>
+<body>
+
+<nav id="mainNav" class="scrolled">
+  <a class="nav-logo" href="/">
+    <img src="/logo-new.png" alt="Grand Slam Entertainment Logo" width="66" height="50" />
+    <span class="nav-logo-text">Grand Slam Entertainment</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#attractions">Attractions</a></li>
+    <li><a href="/pricing/">Pricing</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/#book" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/#attractions" onclick="toggleMenu()">Attractions</a>
+  <a href="/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/#book" onclick="toggleMenu()" class="mm-cta">Book Now</a>
+</div>
+
+<section class="error-hero">
+  <div class="error-code">404</div>
+  <h1 class="error-title">This page took a wrong turn.</h1>
+  <p class="error-body">We couldn't find the page you were looking for. Here's where you probably meant to go:</p>
+  <div class="card-grid" style="max-width:900px;">
+    <a href="/" class="info-card"><h3>Home</h3><p>Grand Slam Entertainment overview.</p></a>
+    <a href="/glow-golf-branson/" class="info-card"><h3>Glow Golf in Branson</h3><p>18-hole blacklight mini golf.</p></a>
+    <a href="/laser-tag-branson/" class="info-card"><h3>Zombie Laser Tag</h3><p>Operation Outbreak laser tag.</p></a>
+    <a href="/escape-rooms-branson/" class="info-card"><h3>Escape Rooms in Branson</h3><p>The Skeleton Key, 60-minute room.</p></a>
+    <a href="/pricing/" class="info-card"><h3>Pricing</h3><p>Every attraction and bundle.</p></a>
+    <a href="/#book" class="info-card"><h3>Book Now</h3><p>Reserve your date and time.</p></a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-logo">Grand Slam Entertainment</div>
+      <p class="ft-desc">Ballparks of America, 1000 Pat Nash Dr, Branson, MO 65616 &middot; (417) 343-6540</p>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <p class="ft-copy">&copy; 2026 Grand Slam Entertainment &middot; Branson, MO</p>
+  </div>
+</footer>
+
+<script src="/shared.js"></script>
+</body>
+</html>
