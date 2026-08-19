@@ -1,0 +1,36 @@
+[build]
+  publish = "."
+
+# Force a single canonical host (non-www) so Google never sees
+# www.play-grandslam.com and play-grandslam.com as two different sites.
+# Netlify already forces https by default on custom domains.
+[[redirects]]
+  from = "https://www.play-grandslam.com/*"
+  to = "https://play-grandslam.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
