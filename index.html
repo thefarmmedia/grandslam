@@ -243,6 +243,19 @@
     .pricing-poster{margin:2rem auto 0;max-width:500px;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 0 1px rgba(57,255,20,0.15)}
     .pricing-poster img{width:100%;display:block}
 
+    /* ── COMPARISON TABLE ── */
+    .compare-wrap{overflow-x:auto;margin:0 auto 2.5rem;max-width:700px;-webkit-overflow-scrolling:touch}
+    .compare-table{width:100%;border-collapse:separate;border-spacing:0;min-width:480px;background:rgba(0,0,0,0.25);border-radius:8px;overflow:hidden}
+    .compare-table th,.compare-table td{padding:0.85rem 0.75rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07)}
+    .compare-table thead tr:first-child th{font-family:'Bebas Neue',cursive;font-size:1.05rem;letter-spacing:1px;color:#fff;padding-top:1.1rem}
+    .compare-table .compare-row-label{text-align:left;visibility:hidden}
+    .compare-table .compare-price-row td{font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;color:var(--green);padding-top:0;padding-bottom:0.9rem}
+    .compare-table tbody td:first-child,.compare-table .compare-row-label{text-align:left;font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.5px;color:rgba(255,255,255,0.8)}
+    .compare-table .compare-best{background:rgba(57,255,20,0.08)}
+    .compare-badge{display:block;font-family:'Oswald',sans-serif;font-size:0.58rem;letter-spacing:1.5px;text-transform:uppercase;background:var(--green);color:#000;padding:0.15rem 0.55rem;border-radius:2px;font-weight:700;margin:0.35rem auto 0;width:fit-content}
+    .compare-table .cm-yes{color:var(--green);font-size:1.1rem}
+    .compare-table .cm-no{color:rgba(255,255,255,0.2)}
+
     /* ── FLOATING ORBS (ambient background accent) ── */
     .float-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
     .float-orbs .orb{position:absolute;border-radius:50%;filter:blur(45px);animation:orb-drift ease-in-out infinite}
@@ -381,11 +394,15 @@
     .cal-dot-closed{background:rgba(255,255,255,0.22)}
 
     /* ── REVIEWS ── */
-    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2rem}
-    .review-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:1.5rem}
-    .review-stars{color:#FFD200;font-size:1rem;letter-spacing:2px;margin-bottom:0.6rem}
-    .review-text{color:rgba(255,255,255,0.75);font-size:0.9rem;line-height:1.65;margin-bottom:0.9rem}
-    .review-author{font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray)}
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-top:2rem}
+    .review-card{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.75rem;transition:border-color 0.2s,transform 0.2s;display:flex;flex-direction:column}
+    .review-card:hover{border-color:rgba(57,255,20,0.3);transform:translateY(-2px)}
+    .review-quote-mark{font-family:'Bebas Neue',cursive;font-size:2.75rem;line-height:1;color:var(--green);opacity:0.35;margin-bottom:0.25rem}
+    .review-stars{color:#FFD200;font-size:0.95rem;letter-spacing:2px;margin-bottom:0.75rem}
+    .review-text{color:rgba(255,255,255,0.8);font-size:0.92rem;line-height:1.7;margin-bottom:1.25rem;flex-grow:1}
+    .review-byline{display:flex;align-items:center;gap:0.75rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)}
+    .review-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;color:#000;background:var(--green)}
+    .review-author{font-family:'Oswald',sans-serif;font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;color:#fff}
     .reviews-empty{text-align:center;background:var(--card);border:1px dashed rgba(255,255,255,0.14);border-radius:8px;padding:2.75rem 2rem;margin-top:2rem}
     .reviews-empty p{color:var(--gray);font-size:0.9rem;margin-bottom:1.25rem;max-width:480px;margin-left:auto;margin-right:auto}
 
@@ -657,6 +674,46 @@
           Glow Golf + Laser Tag<br/>+ Escape Rooms
         </div>
       </div>
+    </div>
+
+    <div style="margin-bottom:0.75rem;font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--gray);">What's Included</div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="compare-row-label">Attraction</th>
+            <th>Pay Per Attraction</th>
+            <th>Double Play</th>
+            <th class="compare-best">Triple Play<span class="compare-badge">Best Value</span></th>
+          </tr>
+          <tr class="compare-price-row">
+            <td class="compare-row-label"></td>
+            <td>$10&ndash;$25</td>
+            <td>$18</td>
+            <td class="compare-best">$35</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Glow Golf</td>
+            <td class="cm-yes">$10</td>
+            <td class="cm-yes">✓</td>
+            <td class="cm-yes compare-best">✓</td>
+          </tr>
+          <tr>
+            <td>Zombie Laser Tag</td>
+            <td class="cm-yes">$10</td>
+            <td class="cm-yes">✓</td>
+            <td class="cm-yes compare-best">✓</td>
+          </tr>
+          <tr>
+            <td>Escape Rooms</td>
+            <td class="cm-yes">$25</td>
+            <td class="cm-no">&mdash;</td>
+            <td class="cm-yes compare-best">✓</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <br /><br />
@@ -1109,7 +1166,7 @@
     <div style="text-align:center;margin-bottom:3rem;">
       <p class="sec-label" style="text-align:center;">— Ballparks of America · Branson, MO</p>
       <h2 class="sec-title" style="font-size:clamp(2.5rem,7vw,5.5rem);">Book Your<br/><span style="color:var(--green);animation:neon-pulse-green 2s ease-in-out infinite;display:inline-block;">Adventure</span></h2>
-      <p style="color:var(--gray);font-size:0.9rem;margin-top:0.5rem;">No calendars. No wait times. Pick your experience and pay — we'll handle the rest.</p>
+      <p style="color:var(--gray);font-size:0.9rem;margin-top:0.5rem;">Pick your experience, reserve a date and time, and pay when you arrive — no payment required to book.</p>
     </div>
 
     <!-- STEP PROGRESS BAR -->
@@ -1503,12 +1560,26 @@
       return d.innerHTML;
     }
 
-    grid.innerHTML = reviews.map(function(r){
+    function initials(name){
+      var parts = name.trim().split(/\s+/).filter(Boolean);
+      var first = parts[0] ? parts[0][0] : '';
+      var last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+      return (first + last).toUpperCase();
+    }
+
+    var avatarColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
+
+    grid.innerHTML = reviews.map(function(r, i){
       var stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+      var avatarBg = avatarColors[i % avatarColors.length];
       return '<div class="review-card">' +
+        '<div class="review-quote-mark" aria-hidden="true">&ldquo;</div>' +
         '<div class="review-stars" aria-label="' + r.rating + ' out of 5 stars">' + stars + '</div>' +
-        '<p class="review-text">“' + esc(r.text) + '”</p>' +
-        '<div class="review-author">' + esc(r.name) + '</div>' +
+        '<p class="review-text">' + esc(r.text) + '</p>' +
+        '<div class="review-byline">' +
+          '<div class="review-avatar" style="background:' + avatarBg + '">' + esc(initials(r.name)) + '</div>' +
+          '<div class="review-author">' + esc(r.name) + '</div>' +
+        '</div>' +
       '</div>';
     }).join('');
 
