@@ -32,7 +32,13 @@
     { start:'2026-07-01', end:'2026-08-16', days:[0,1,2,3,5,6], open:'12:00', close:'22:00', label:'July – August 16', hoursLabel:'Mon–Sun, 12pm–10pm (closed Thursdays)' },
     { start:'2026-08-17', end:'2026-09-10', days:[],            open:null,    close:null,    label:'August 17 – September 10', hoursLabel:'Closed' },
     { start:'2026-09-11', end:'2026-09-30', days:[5,6],         open:'18:00', close:'24:00', label:'September 11 – September 30', hoursLabel:'Fridays & Saturdays, 6pm–Midnight' },
-    { start:'2026-10-01', end:'2026-10-31', days:[0,4,5,6],     open:'18:00', close:'23:00', label:'October', hoursLabel:'Thursday–Sunday, 6pm–11pm' }
+    { start:'2026-10-01', end:'2026-10-31', days:[0,4,5,6],     open:'18:00', close:'23:00', label:'October', hoursLabel:'Thursday–Sunday, 6pm–11pm' },
+    // All three attractions (Glow Golf, Laser Tag, Escape Rooms) are
+    // closed for the season with no committed reopening date yet —
+    // reopenLabel is intentionally vague ("Spring 2027"), not a real
+    // date. Update this block (and bump the end date if Spring 2027
+    // arrives and we're still not reopened) when a real date is set.
+    { start:'2026-11-01', end:'2027-05-31', days:[],            open:null,    close:null,    label:'November 2026 – Spring 2027', hoursLabel:'Closed for the Season', seasonClosed:true, reopenLabel:'Spring 2027' }
   ];
 
   function pad2(n){ return n < 10 ? '0'+n : ''+n; }
@@ -50,7 +56,14 @@
     var period = GS_HOURS_PERIODS.filter(function(p){ return dateStr >= p.start && dateStr <= p.end; })[0];
     if(!period) return null;
     var day = new Date(dateStr+'T12:00:00').getDay();
-    if(period.days.indexOf(day) === -1) return { closed:true };
+    if(period.days.indexOf(day) === -1){
+      return {
+        closed: true,
+        seasonClosed: !!period.seasonClosed,
+        reopenLabel: period.reopenLabel || null,
+        hoursLabel: period.hoursLabel
+      };
+    }
     return { closed:false, open:period.open, close:period.close };
   }
 
@@ -85,6 +98,13 @@
       return { state:'unknown', label:'Reservations Open', detail:'See current schedule below.' };
     }
     if(hours.closed){
+      if(hours.seasonClosed){
+        return {
+          state:'season-closed',
+          label:'Closed for the Season',
+          detail: hours.reopenLabel ? 'Reopening ' + hours.reopenLabel + '.' : 'See current schedule below.'
+        };
+      }
       return { state:'closed', label:'Closed Today', detail:'See current schedule below.' };
     }
     var nowMin = now.getHours()*60 + now.getMinutes();
