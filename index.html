@@ -50,11 +50,6 @@
     "address": { "@type": "PostalAddress", "streetAddress": "1000 Pat Nash Dr", "addressLocality": "Branson", "addressRegion": "MO", "postalCode": "65616", "addressCountry": "US" },
     "geo": { "@type": "GeoCoordinates", "latitude": 36.6434, "longitude": -93.2185 },
     "priceRange": "$10-$35",
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Friday","Saturday","Sunday"], "opens": "12:00", "closes": "22:00", "validFrom": "2026-07-01", "validThrough": "2026-08-16" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "18:00", "closes": "23:59", "validFrom": "2026-09-11", "validThrough": "2026-09-30" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday","Friday","Saturday","Sunday"], "opens": "18:00", "closes": "23:00", "validFrom": "2026-10-01", "validThrough": "2026-10-31" }
-    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Grand Slam Entertainment Pricing",
@@ -94,7 +89,7 @@
       { "@type": "Question", "name": "Do I need a reservation or can I walk in?", "acceptedAnswer": { "@type": "Answer", "text": "Walk-ins are welcome, but we strongly recommend booking in advance — especially on weekends and peak Branson season. Reserving online guarantees your spot." } },
       { "@type": "Question", "name": "Can I do all three in one visit?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! The Triple Play package gets you into all three attractions and you can experience them in any order. Most guests complete all three in 2-3 hours." } },
       { "@type": "Question", "name": "Do you host birthday parties and private events?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We love hosting birthday parties, corporate team events, school groups, and private outings. Contact us to discuss group pricing and private booking availability." } },
-      { "@type": "Question", "name": "What are your hours?", "acceptedAnswer": { "@type": "Answer", "text": "Hours change seasonally. July and August (through Aug 16): Monday-Sunday, 12pm-10pm, closed Thursdays. August 17-September 10: closed. Starting September 11: Fridays and Saturdays, 6pm-Midnight. October: Thursday-Sunday, 6pm-11pm. Pick a date on our booking page for exact available times." } },
+      { "@type": "Question", "name": "What are your hours?", "acceptedAnswer": { "@type": "Answer", "text": "We're closed for the season and reopening Spring 2027. An exact reopening date hasn't been set yet — check this page or call (417) 343-6540 for the latest." } },
       { "@type": "Question", "name": "How long does each attraction take?", "acceptedAnswer": { "@type": "Answer", "text": "Glow Golf typically takes 45-60 minutes for 18 holes. Laser Tag sessions run about 20-30 minutes. Escape Rooms are 60-minute experiences. Plan on 2-3 hours total for all three." } },
       { "@type": "Question", "name": "Is Grand Slam Entertainment accessible?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Our facility is ADA accessible. The glow golf course and laser tag arena are designed to be inclusive. Please contact us in advance if your group has specific accessibility needs." } },
       { "@type": "Question", "name": "What should I wear?", "acceptedAnswer": { "@type": "Answer", "text": "Wear comfortable clothes — especially for laser tag. White and neon-colored clothing looks amazing under the UV blacklights in the glow golf course. Closed-toe shoes are recommended for all attractions." } },
@@ -231,6 +226,7 @@
     .nt-blue{background:#00BFFF;box-shadow:0 0 6px #00BFFF,0 0 18px #00BFFF;animation-delay:0.8s}
     .nt-orange{background:#FF8C00;box-shadow:0 0 6px #FF8C00,0 0 18px #FF8C00;animation-delay:0.2s}
     .neon-open{display:inline-block;padding:0.5rem 1.6rem;border:3px solid #39FF14;border-radius:5px;font-family:'Bebas Neue',cursive;font-size:1.4rem;letter-spacing:6px;color:#39FF14;animation:neon-pulse-green 1.8s ease-in-out infinite;margin-bottom:1.5rem}
+    .neon-closed-badge{display:inline-block;padding:0.5rem 1.6rem;border:3px solid #FF2020;border-radius:5px;font-family:'Bebas Neue',cursive;font-size:1.4rem;letter-spacing:6px;color:#FF2020;animation:neon-pulse-red 1.8s ease-in-out infinite;margin-bottom:1.5rem}
 
     /* ── PRICING ── */
     .pricing-band{position:relative;z-index:1;background:linear-gradient(135deg,#060f00,#001a05,#060f00);border-top:2px solid rgba(57,255,20,0.25);border-bottom:2px solid rgba(57,255,20,0.25);padding:4rem 2rem;text-align:center;overflow:hidden}
@@ -242,6 +238,19 @@
     .pricing-note span{color:var(--green)}
     .pricing-poster{margin:2rem auto 0;max-width:500px;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 0 1px rgba(57,255,20,0.15)}
     .pricing-poster img{width:100%;display:block}
+
+    /* ── COMPARISON TABLE ── */
+    .compare-wrap{overflow-x:auto;margin:0 auto 2.5rem;max-width:700px;-webkit-overflow-scrolling:touch}
+    .compare-table{width:100%;border-collapse:separate;border-spacing:0;min-width:480px;background:rgba(0,0,0,0.25);border-radius:8px;overflow:hidden}
+    .compare-table th,.compare-table td{padding:0.85rem 0.75rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07)}
+    .compare-table thead tr:first-child th{font-family:'Bebas Neue',cursive;font-size:1.05rem;letter-spacing:1px;color:#fff;padding-top:1.1rem}
+    .compare-table .compare-row-label{text-align:left;visibility:hidden}
+    .compare-table .compare-price-row td{font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;color:var(--green);padding-top:0;padding-bottom:0.9rem}
+    .compare-table tbody td:first-child,.compare-table .compare-row-label{text-align:left;font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.5px;color:rgba(255,255,255,0.8)}
+    .compare-table .compare-best{background:rgba(57,255,20,0.08)}
+    .compare-badge{display:block;font-family:'Oswald',sans-serif;font-size:0.58rem;letter-spacing:1.5px;text-transform:uppercase;background:var(--green);color:#000;padding:0.15rem 0.55rem;border-radius:2px;font-weight:700;margin:0.35rem auto 0;width:fit-content}
+    .compare-table .cm-yes{color:var(--green);font-size:1.1rem}
+    .compare-table .cm-no{color:rgba(255,255,255,0.2)}
 
     /* ── FLOATING ORBS (ambient background accent) ── */
     .float-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
@@ -381,11 +390,15 @@
     .cal-dot-closed{background:rgba(255,255,255,0.22)}
 
     /* ── REVIEWS ── */
-    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2rem}
-    .review-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:1.5rem}
-    .review-stars{color:#FFD200;font-size:1rem;letter-spacing:2px;margin-bottom:0.6rem}
-    .review-text{color:rgba(255,255,255,0.75);font-size:0.9rem;line-height:1.65;margin-bottom:0.9rem}
-    .review-author{font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray)}
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-top:2rem}
+    .review-card{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.75rem;transition:border-color 0.2s,transform 0.2s;display:flex;flex-direction:column}
+    .review-card:hover{border-color:rgba(57,255,20,0.3);transform:translateY(-2px)}
+    .review-quote-mark{font-family:'Bebas Neue',cursive;font-size:2.75rem;line-height:1;color:var(--green);opacity:0.35;margin-bottom:0.25rem}
+    .review-stars{color:#FFD200;font-size:0.95rem;letter-spacing:2px;margin-bottom:0.75rem}
+    .review-text{color:rgba(255,255,255,0.8);font-size:0.92rem;line-height:1.7;margin-bottom:1.25rem;flex-grow:1}
+    .review-byline{display:flex;align-items:center;gap:0.75rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.06)}
+    .review-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;color:#000;background:var(--green)}
+    .review-author{font-family:'Oswald',sans-serif;font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;color:#fff}
     .reviews-empty{text-align:center;background:var(--card);border:1px dashed rgba(255,255,255,0.14);border-radius:8px;padding:2.75rem 2rem;margin-top:2rem}
     .reviews-empty p{color:var(--gray);font-size:0.9rem;margin-bottom:1.25rem;max-width:480px;margin-left:auto;margin-right:auto}
 
@@ -657,6 +670,46 @@
           Glow Golf + Laser Tag<br/>+ Escape Rooms
         </div>
       </div>
+    </div>
+
+    <div style="margin-bottom:0.75rem;font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--gray);">What's Included</div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="compare-row-label">Attraction</th>
+            <th>Pay Per Attraction</th>
+            <th>Double Play</th>
+            <th class="compare-best">Triple Play<span class="compare-badge">Best Value</span></th>
+          </tr>
+          <tr class="compare-price-row">
+            <td class="compare-row-label"></td>
+            <td>$10&ndash;$25</td>
+            <td>$18</td>
+            <td class="compare-best">$35</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Glow Golf</td>
+            <td class="cm-yes">$10</td>
+            <td class="cm-yes">✓</td>
+            <td class="cm-yes compare-best">✓</td>
+          </tr>
+          <tr>
+            <td>Zombie Laser Tag</td>
+            <td class="cm-yes">$10</td>
+            <td class="cm-yes">✓</td>
+            <td class="cm-yes compare-best">✓</td>
+          </tr>
+          <tr>
+            <td>Escape Rooms</td>
+            <td class="cm-yes">$25</td>
+            <td class="cm-no">&mdash;</td>
+            <td class="cm-yes compare-best">✓</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <br /><br />
@@ -1035,12 +1088,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">What are your hours? <span class="faq-arr">+</span></button>
-        <div class="faq-a">Hours change seasonally:<br/>
-          • <strong>July &amp; August (through Aug 16):</strong> Mon–Sun, 12pm–10pm. Closed Thursdays.<br/>
-          • <strong>Aug 17 – Sep 10:</strong> Closed.<br/>
-          • <strong>Starting Sep 11:</strong> Fridays &amp; Saturdays, 6pm–Midnight.<br/>
-          • <strong>October:</strong> Thursday–Sunday, 6pm–11pm.<br/>
-          Pick a date on our booking page and we'll show you the exact times available.</div>
+        <div class="faq-a">We're closed for the season right now and reopening <strong>Spring 2027</strong>. We don't have an exact reopening date yet — check back on this page or give us a call at <a href="tel:+14173436540" style="color:var(--green);">(417) 343-6540</a> and we'll let you know as soon as dates are set.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">How long does each attraction take? <span class="faq-arr">+</span></button>
@@ -1109,7 +1157,7 @@
     <div style="text-align:center;margin-bottom:3rem;">
       <p class="sec-label" style="text-align:center;">— Ballparks of America · Branson, MO</p>
       <h2 class="sec-title" style="font-size:clamp(2.5rem,7vw,5.5rem);">Book Your<br/><span style="color:var(--green);animation:neon-pulse-green 2s ease-in-out infinite;display:inline-block;">Adventure</span></h2>
-      <p style="color:var(--gray);font-size:0.9rem;margin-top:0.5rem;">No calendars. No wait times. Pick your experience and pay — we'll handle the rest.</p>
+      <p style="color:var(--gray);font-size:0.9rem;margin-top:0.5rem;">Pick your experience, reserve a date and time, and pay when you arrive — no payment required to book.</p>
     </div>
 
     <!-- STEP PROGRESS BAR -->
@@ -1217,7 +1265,11 @@
         </div>
         <div style="padding:2rem;">
           <p style="color:var(--gray);font-size:0.88rem;margin-bottom:1.5rem;line-height:1.6;">Pick a date and time to reserve your spot — no payment now, just show up and pay at check-in. Grayed-out days are closed.</p>
-          <div style="margin-bottom:1.25rem;">
+          <div id="calClosedBanner" hidden style="border:1px solid rgba(255,32,32,0.3);background:rgba(255,32,32,0.08);border-radius:6px;padding:1.25rem;margin-bottom:1.5rem;text-align:center;">
+            <div style="font-family:'Bebas Neue',cursive;font-size:1.3rem;letter-spacing:2px;color:var(--red);margin-bottom:0.35rem;">Closed for the Season</div>
+            <p id="calClosedDetail" style="color:var(--gray);font-size:0.85rem;line-height:1.5;margin:0;">We're closed right now and reopening soon. Check back here or give us a call for the latest.</p>
+          </div>
+          <div id="calDateSection" style="margin-bottom:1.25rem;">
             <label style="font-family:'Oswald',sans-serif;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);display:block;margin-bottom:0.5rem;">Visit Date</label>
             <div class="cal-widget" id="calWidget">
               <div class="cal-head">
@@ -1349,7 +1401,7 @@
         <div class="loc-d">
           <strong>Address:</strong> 1000 Pat Nash Dr, Branson, MO 65616<br />
           <strong>Phone:</strong> <a href="tel:+14173436540" style="color: var(--green); text-decoration: none;">(417) 343-6540</a><br />
-          <strong>Hours:</strong> Jul–Aug 16: Mon–Sun 12pm–10pm (closed Thu) · Aug 17–Sep 10: Closed · Sep 11+: Fri–Sat 6pm–Midnight · Oct: Thu–Sun 6pm–11pm<br />
+          <strong>Hours:</strong> Closed for the season — reopening Spring 2027. Call us or check back here for exact dates.<br />
           <strong>Parking:</strong> Free on-site parking available
         </div>
         <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.6rem;">
@@ -1503,12 +1555,26 @@
       return d.innerHTML;
     }
 
-    grid.innerHTML = reviews.map(function(r){
+    function initials(name){
+      var parts = name.trim().split(/\s+/).filter(Boolean);
+      var first = parts[0] ? parts[0][0] : '';
+      var last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+      return (first + last).toUpperCase();
+    }
+
+    var avatarColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
+
+    grid.innerHTML = reviews.map(function(r, i){
       var stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+      var avatarBg = avatarColors[i % avatarColors.length];
       return '<div class="review-card">' +
+        '<div class="review-quote-mark" aria-hidden="true">&ldquo;</div>' +
         '<div class="review-stars" aria-label="' + r.rating + ' out of 5 stars">' + stars + '</div>' +
-        '<p class="review-text">“' + esc(r.text) + '”</p>' +
-        '<div class="review-author">' + esc(r.name) + '</div>' +
+        '<p class="review-text">' + esc(r.text) + '</p>' +
+        '<div class="review-byline">' +
+          '<div class="review-avatar" style="background:' + avatarBg + '">' + esc(initials(r.name)) + '</div>' +
+          '<div class="review-author">' + esc(r.name) + '</div>' +
+        '</div>' +
       '</div>';
     }).join('');
 
@@ -1650,12 +1716,50 @@
     return false;
   }
 
+  function anyOpenDayInRange(){
+    var start = new Date(CAL_MIN+'T12:00:00');
+    var end = new Date(CAL_MAX+'T12:00:00');
+    var y = start.getFullYear(), m = start.getMonth();
+    var guard = 0;
+    while(guard < 36){
+      if(monthHasOpenDay(y, m)) return true;
+      if(y > end.getFullYear() || (y === end.getFullYear() && m >= end.getMonth())) break;
+      m++; if(m > 11){ m = 0; y++; }
+      guard++;
+    }
+    return false;
+  }
+
   function initCalendar(){
     var today = new Date();
     CAL_MIN = today.toISOString().split('T')[0];
     CAL_MAX = HOURS_PERIODS[HOURS_PERIODS.length-1].end;
     calView.year = today.getFullYear();
     calView.month = today.getMonth();
+
+    var banner = document.getElementById('calClosedBanner');
+    var detailEl = document.getElementById('calClosedDetail');
+    var dateSection = document.getElementById('calDateSection');
+    var timeWrap = document.getElementById('timeWrap');
+
+    if(!anyOpenDayInRange()){
+      // Fully closed for the foreseeable future (e.g. an off-season
+      // closure) — no month within range has a bookable day. Don't show
+      // a dead-end, all-gray calendar; explain the closure instead.
+      var todayHours = getDayHours(CAL_MIN);
+      if(banner){
+        if(detailEl && todayHours && todayHours.reopenLabel){
+          detailEl.textContent = "We're closed right now and reopening " + todayHours.reopenLabel + ". Check back here or give us a call for exact dates.";
+        }
+        banner.hidden = false;
+      }
+      if(dateSection) dateSection.hidden = true;
+      if(timeWrap) timeWrap.hidden = true;
+      return;
+    }
+    if(banner) banner.hidden = true;
+    if(dateSection) dateSection.hidden = false;
+
     // If today falls inside a fully-closed stretch (e.g. a seasonal
     // break) with no bookable days left this month, jump ahead to the
     // next month that actually has an open date instead of showing a
@@ -1857,6 +1961,7 @@
 
   // ── Hero status badge — always derived from site-data.js, never hardcoded ──
   (function renderHeroStatus(){
+    var badgeEl = document.getElementById('heroStatusBadge');
     var detailEl = document.getElementById('heroStatusDetail');
     if(!detailEl || typeof GS_getCurrentStatus !== 'function') return;
     var status = GS_getCurrentStatus();
@@ -1869,6 +1974,13 @@
       msg = status.label + (status.detail ? ' — ' + status.detail : '');
     }
     detailEl.textContent = msg;
+
+    if(badgeEl && status.state === 'season-closed'){
+      badgeEl.classList.remove('neon-open');
+      badgeEl.classList.add('neon-closed-badge');
+      badgeEl.removeAttribute('style');
+      badgeEl.textContent = '★  Closed for the Season  ★';
+    }
   })();
 
 
